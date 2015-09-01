@@ -49,7 +49,23 @@ namespace starcraft2_matchmaker
             this.comboBoxWinningTeam = new System.Windows.Forms.ComboBox();
             this.labelMatchmaking = new System.Windows.Forms.Label();
             this.labelResult = new System.Windows.Forms.Label();
+            this.labelDetails = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
+            this.labelTerran = new System.Windows.Forms.Label();
+            this.labelZerg = new System.Windows.Forms.Label();
+            this.labelProtoss = new System.Windows.Forms.Label();
+            this.overallContent = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelOverall = new System.Windows.Forms.Label();
+            this.nameContent = new System.Windows.Forms.Label();
+            this.terranContent = new System.Windows.Forms.Label();
+            this.zergContent = new System.Windows.Forms.Label();
+            this.protossContent = new System.Windows.Forms.Label();
+            this.randomContent = new System.Windows.Forms.Label();
+            this.labelRandom = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -58,7 +74,7 @@ namespace starcraft2_matchmaker
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(807, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(699, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -90,30 +106,32 @@ namespace starcraft2_matchmaker
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // labelHumanPlayers
             // 
             this.labelHumanPlayers.AutoSize = true;
+            this.labelHumanPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHumanPlayers.ForeColor = System.Drawing.SystemColors.Desktop;
             this.labelHumanPlayers.Location = new System.Drawing.Point(9, 36);
             this.labelHumanPlayers.Name = "labelHumanPlayers";
-            this.labelHumanPlayers.Size = new System.Drawing.Size(78, 13);
+            this.labelHumanPlayers.Size = new System.Drawing.Size(91, 13);
             this.labelHumanPlayers.TabIndex = 1;
             this.labelHumanPlayers.Text = "Human Players";
             this.labelHumanPlayers.Click += new System.EventHandler(this.label1_Click);
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(311, 293);
+            this.buttonAdd.Location = new System.Drawing.Point(343, 293);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(75, 23);
             this.buttonAdd.TabIndex = 3;
@@ -123,7 +141,7 @@ namespace starcraft2_matchmaker
             // 
             // buttonModify
             // 
-            this.buttonModify.Location = new System.Drawing.Point(230, 293);
+            this.buttonModify.Location = new System.Drawing.Point(262, 293);
             this.buttonModify.Name = "buttonModify";
             this.buttonModify.Size = new System.Drawing.Size(75, 23);
             this.buttonModify.TabIndex = 3;
@@ -133,7 +151,7 @@ namespace starcraft2_matchmaker
             // 
             // buttonRemove
             // 
-            this.buttonRemove.Location = new System.Drawing.Point(149, 293);
+            this.buttonRemove.Location = new System.Drawing.Point(180, 293);
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.Size = new System.Drawing.Size(75, 23);
             this.buttonRemove.TabIndex = 3;
@@ -145,7 +163,7 @@ namespace starcraft2_matchmaker
             // 
             this.checkBoxEnableIA.AutoSize = true;
             this.checkBoxEnableIA.Enabled = false;
-            this.checkBoxEnableIA.Location = new System.Drawing.Point(12, 332);
+            this.checkBoxEnableIA.Location = new System.Drawing.Point(12, 377);
             this.checkBoxEnableIA.Name = "checkBoxEnableIA";
             this.checkBoxEnableIA.Size = new System.Drawing.Size(72, 17);
             this.checkBoxEnableIA.TabIndex = 4;
@@ -158,21 +176,22 @@ namespace starcraft2_matchmaker
             this.checkedListBoxHumanPlayers.FormattingEnabled = true;
             this.checkedListBoxHumanPlayers.Location = new System.Drawing.Point(12, 64);
             this.checkedListBoxHumanPlayers.Name = "checkedListBoxHumanPlayers";
-            this.checkedListBoxHumanPlayers.Size = new System.Drawing.Size(374, 214);
+            this.checkedListBoxHumanPlayers.Size = new System.Drawing.Size(141, 214);
             this.checkedListBoxHumanPlayers.TabIndex = 5;
+            this.checkedListBoxHumanPlayers.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxHumanPlayers_SelectedIndexChanged);
             // 
             // comboBoxMatchType
             // 
             this.comboBoxMatchType.FormattingEnabled = true;
-            this.comboBoxMatchType.Location = new System.Drawing.Point(12, 366);
+            this.comboBoxMatchType.Location = new System.Drawing.Point(12, 411);
             this.comboBoxMatchType.Name = "comboBoxMatchType";
-            this.comboBoxMatchType.Size = new System.Drawing.Size(374, 21);
+            this.comboBoxMatchType.Size = new System.Drawing.Size(237, 21);
             this.comboBoxMatchType.TabIndex = 6;
             this.comboBoxMatchType.Text = "Match Type";
             // 
             // buttonCreateTeams
             // 
-            this.buttonCreateTeams.Location = new System.Drawing.Point(282, 402);
+            this.buttonCreateTeams.Location = new System.Drawing.Point(145, 447);
             this.buttonCreateTeams.Name = "buttonCreateTeams";
             this.buttonCreateTeams.Size = new System.Drawing.Size(104, 23);
             this.buttonCreateTeams.TabIndex = 3;
@@ -181,7 +200,7 @@ namespace starcraft2_matchmaker
             // 
             // buttonValidate
             // 
-            this.buttonValidate.Location = new System.Drawing.Point(717, 402);
+            this.buttonValidate.Location = new System.Drawing.Point(609, 449);
             this.buttonValidate.Name = "buttonValidate";
             this.buttonValidate.Size = new System.Drawing.Size(75, 23);
             this.buttonValidate.TabIndex = 3;
@@ -190,7 +209,7 @@ namespace starcraft2_matchmaker
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(636, 402);
+            this.buttonCancel.Location = new System.Drawing.Point(528, 449);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 3;
@@ -200,9 +219,9 @@ namespace starcraft2_matchmaker
             // comboBoxWinningTeam
             // 
             this.comboBoxWinningTeam.FormattingEnabled = true;
-            this.comboBoxWinningTeam.Location = new System.Drawing.Point(418, 366);
+            this.comboBoxWinningTeam.Location = new System.Drawing.Point(447, 411);
             this.comboBoxWinningTeam.Name = "comboBoxWinningTeam";
-            this.comboBoxWinningTeam.Size = new System.Drawing.Size(374, 21);
+            this.comboBoxWinningTeam.Size = new System.Drawing.Size(237, 21);
             this.comboBoxWinningTeam.TabIndex = 6;
             this.comboBoxWinningTeam.Text = "Select the Winning Team";
             this.comboBoxWinningTeam.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
@@ -210,9 +229,11 @@ namespace starcraft2_matchmaker
             // labelMatchmaking
             // 
             this.labelMatchmaking.AutoSize = true;
-            this.labelMatchmaking.Location = new System.Drawing.Point(415, 36);
+            this.labelMatchmaking.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMatchmaking.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.labelMatchmaking.Location = new System.Drawing.Point(444, 36);
             this.labelMatchmaking.Name = "labelMatchmaking";
-            this.labelMatchmaking.Size = new System.Drawing.Size(104, 13);
+            this.labelMatchmaking.Size = new System.Drawing.Size(122, 13);
             this.labelMatchmaking.TabIndex = 7;
             this.labelMatchmaking.Text = "Matchmaking Result";
             // 
@@ -224,11 +245,184 @@ namespace starcraft2_matchmaker
             this.labelResult.Size = new System.Drawing.Size(0, 13);
             this.labelResult.TabIndex = 7;
             // 
+            // labelDetails
+            // 
+            this.labelDetails.AutoSize = true;
+            this.labelDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDetails.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.labelDetails.Location = new System.Drawing.Point(3, 0);
+            this.labelDetails.Name = "labelDetails";
+            this.labelDetails.Size = new System.Drawing.Size(46, 13);
+            this.labelDetails.TabIndex = 7;
+            this.labelDetails.Text = "Details";
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.labelName.Location = new System.Drawing.Point(3, 30);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(38, 13);
+            this.labelName.TabIndex = 7;
+            this.labelName.Text = "Name:";
+            // 
+            // labelTerran
+            // 
+            this.labelTerran.AutoSize = true;
+            this.labelTerran.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTerran.ForeColor = System.Drawing.Color.Blue;
+            this.labelTerran.Location = new System.Drawing.Point(3, 60);
+            this.labelTerran.Name = "labelTerran";
+            this.labelTerran.Size = new System.Drawing.Size(41, 13);
+            this.labelTerran.TabIndex = 7;
+            this.labelTerran.Text = "Terran:";
+            // 
+            // labelZerg
+            // 
+            this.labelZerg.AutoSize = true;
+            this.labelZerg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelZerg.ForeColor = System.Drawing.Color.Maroon;
+            this.labelZerg.Location = new System.Drawing.Point(3, 90);
+            this.labelZerg.Name = "labelZerg";
+            this.labelZerg.Size = new System.Drawing.Size(32, 13);
+            this.labelZerg.TabIndex = 7;
+            this.labelZerg.Text = "Zerg:";
+            // 
+            // labelProtoss
+            // 
+            this.labelProtoss.AutoSize = true;
+            this.labelProtoss.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProtoss.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.labelProtoss.Location = new System.Drawing.Point(3, 120);
+            this.labelProtoss.Name = "labelProtoss";
+            this.labelProtoss.Size = new System.Drawing.Size(45, 13);
+            this.labelProtoss.TabIndex = 7;
+            this.labelProtoss.Text = "Protoss:";
+            // 
+            // overallContent
+            // 
+            this.overallContent.AutoSize = true;
+            this.overallContent.Location = new System.Drawing.Point(70, 180);
+            this.overallContent.Name = "overallContent";
+            this.overallContent.Size = new System.Drawing.Size(0, 13);
+            this.overallContent.TabIndex = 7;
+            this.overallContent.Click += new System.EventHandler(this.labelOverall_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.7533F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.2467F));
+            this.tableLayoutPanel1.Controls.Add(this.labelOverall, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.labelDetails, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.labelName, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.labelTerran, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.labelProtoss, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.labelZerg, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.nameContent, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.terranContent, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.zergContent, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.protossContent, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.randomContent, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.overallContent, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.labelRandom, 0, 5);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(174, 64);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28531F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28531F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28531F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28531F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28531F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28531F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28816F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(244, 214);
+            this.tableLayoutPanel1.TabIndex = 8;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // labelOverall
+            // 
+            this.labelOverall.AutoSize = true;
+            this.labelOverall.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOverall.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.labelOverall.Location = new System.Drawing.Point(3, 180);
+            this.labelOverall.Name = "labelOverall";
+            this.labelOverall.Size = new System.Drawing.Size(43, 13);
+            this.labelOverall.TabIndex = 9;
+            this.labelOverall.Text = "Overall:";
+            // 
+            // nameContent
+            // 
+            this.nameContent.AutoSize = true;
+            this.nameContent.Location = new System.Drawing.Point(70, 30);
+            this.nameContent.Name = "nameContent";
+            this.nameContent.Size = new System.Drawing.Size(0, 13);
+            this.nameContent.TabIndex = 8;
+            // 
+            // terranContent
+            // 
+            this.terranContent.AutoSize = true;
+            this.terranContent.Location = new System.Drawing.Point(70, 60);
+            this.terranContent.Name = "terranContent";
+            this.terranContent.Size = new System.Drawing.Size(0, 13);
+            this.terranContent.TabIndex = 8;
+            // 
+            // zergContent
+            // 
+            this.zergContent.AutoSize = true;
+            this.zergContent.Location = new System.Drawing.Point(70, 90);
+            this.zergContent.Name = "zergContent";
+            this.zergContent.Size = new System.Drawing.Size(0, 13);
+            this.zergContent.TabIndex = 8;
+            // 
+            // protossContent
+            // 
+            this.protossContent.AutoSize = true;
+            this.protossContent.Location = new System.Drawing.Point(70, 120);
+            this.protossContent.Name = "protossContent";
+            this.protossContent.Size = new System.Drawing.Size(0, 13);
+            this.protossContent.TabIndex = 8;
+            // 
+            // randomContent
+            // 
+            this.randomContent.AutoSize = true;
+            this.randomContent.Location = new System.Drawing.Point(70, 150);
+            this.randomContent.Name = "randomContent";
+            this.randomContent.Size = new System.Drawing.Size(0, 13);
+            this.randomContent.TabIndex = 8;
+            // 
+            // labelRandom
+            // 
+            this.labelRandom.AutoSize = true;
+            this.labelRandom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRandom.ForeColor = System.Drawing.Color.Gray;
+            this.labelRandom.Location = new System.Drawing.Point(3, 150);
+            this.labelRandom.Name = "labelRandom";
+            this.labelRandom.Size = new System.Drawing.Size(50, 13);
+            this.labelRandom.TabIndex = 7;
+            this.labelRandom.Text = "Random:";
+            this.labelRandom.Click += new System.EventHandler(this.labelOverall_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label1.Location = new System.Drawing.Point(12, 352);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Match Parameters";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 437);
+            this.ClientSize = new System.Drawing.Size(699, 482);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.labelResult);
             this.Controls.Add(this.labelMatchmaking);
             this.Controls.Add(this.comboBoxWinningTeam);
@@ -249,6 +443,8 @@ namespace starcraft2_matchmaker
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,6 +471,21 @@ namespace starcraft2_matchmaker
         private System.Windows.Forms.ComboBox comboBoxWinningTeam;
         private System.Windows.Forms.Label labelMatchmaking;
         private System.Windows.Forms.Label labelResult;
+        private System.Windows.Forms.Label labelDetails;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Label labelTerran;
+        private System.Windows.Forms.Label labelZerg;
+        private System.Windows.Forms.Label labelProtoss;
+        private System.Windows.Forms.Label overallContent;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label nameContent;
+        private System.Windows.Forms.Label terranContent;
+        private System.Windows.Forms.Label zergContent;
+        private System.Windows.Forms.Label protossContent;
+        private System.Windows.Forms.Label randomContent;
+        private System.Windows.Forms.Label labelRandom;
+        private System.Windows.Forms.Label labelOverall;
+        private System.Windows.Forms.Label label1;
     }
 }
 

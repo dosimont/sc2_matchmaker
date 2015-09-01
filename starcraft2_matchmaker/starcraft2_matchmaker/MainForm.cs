@@ -40,6 +40,7 @@ namespace starcraft2_matchmaker
             comboBoxMatchType.Items.Add(Constants.V3);
             comboBoxMatchType.Items.Add(Constants.V4);
             comboBoxMatchType.SelectedIndex = 0;
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -196,6 +197,50 @@ namespace starcraft2_matchmaker
                     MessageBox.Show("Error: Could not save file. Original error: " + ex.Message);
                 }
             }
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void checkedListBoxHumanPlayers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Player> selectedHumanPlayers = new List<Player>();
+            foreach (var item in checkedListBoxHumanPlayers.SelectedItems)
+            {
+                Player temp = (Player)item;
+                selectedHumanPlayers.Add(temp);
+            }
+            if (selectedHumanPlayers.Count == 1)
+            {
+                updateInformation(selectedHumanPlayers[0]);
+            }
+        }
+
+        private void updateInformation(Player player)
+        {
+            nameContent.Text = player.Name;
+            terranContent.Text = "Win: " + player.Victory[Constants.Terran] + ", Loss: " + player.Defeat[Constants.Terran] + ", Ratio: " + player.Score[Constants.Terran].ToString("0.00");
+            zergContent.Text = "Win: " + player.Victory[Constants.Zerg] + ", Loss: " + player.Defeat[Constants.Zerg] + ", Ratio: " + player.Score[Constants.Zerg].ToString("0.00");
+            protossContent.Text = "Win: " + player.Victory[Constants.Protoss] + ", Loss: " + player.Defeat[Constants.Protoss] + ", Ratio: " + player.Score[Constants.Protoss].ToString("0.00");
+            randomContent.Text = "Win: " + player.Victory[Constants.Random] + ", Loss: " + player.Defeat[Constants.Random] + ", Ratio: " + player.Score[Constants.Random].ToString("0.00");
+            int overallVictory = player.Victory[Constants.Terran] + player.Victory[Constants.Zerg] + player.Victory[Constants.Protoss] + player.Victory[Constants.Random];
+            int overallDefeat = player.Defeat[Constants.Terran] + player.Defeat[Constants.Zerg] + player.Defeat[Constants.Protoss] + player.Defeat[Constants.Random];
+            double overallRatio = 0;
+            if (overallVictory!=0)
+                overallRatio= (double)(overallVictory) / (double)(overallVictory + overallDefeat);
+            overallContent.Text = "Win: " + overallVictory + ", Loss: " + overallDefeat + ", Ratio: " + overallRatio.ToString("0.00");
+        }
+
+        private void labelOverall_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
