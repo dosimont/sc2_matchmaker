@@ -17,7 +17,7 @@ namespace starcraft2_matchmaker
                 double delta = t[i] - mean;
                 sum += delta * delta;
             }
-            return Math.Sqrt(sum / (t.Length - 1));
+            return Math.Sqrt(sum / (t.Length));
         }
 
         public static double Mean(double[] t)

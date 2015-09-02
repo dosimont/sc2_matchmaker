@@ -9,10 +9,24 @@ namespace starcraft2_matchmaker
     class Matchmaker
     {
         private Core core;
+        double score;
 
         public Matchmaker(Core core)
         {
             this.core = core;
+        }
+
+        public double Score
+        {
+            get
+            {
+                return score;
+            }
+
+            set
+            {
+                score = value;
+            }
         }
 
         public void checkMatch()
@@ -40,69 +54,49 @@ namespace starcraft2_matchmaker
 
         private List<Team> computeFFA()
         {
+            Random rnd = new Random();
             List<Team> teams = new List<Team>();
-            Dictionary<String, Dictionary<int, Team>> teamsAndRaces = new Dictionary<String, Dictionary<int, Team>>();
-            foreach (var player in core.CheckedHumanPlayers.Values)
+            Dictionary<String,Team> tempTeams = new Dictionary<String,Team>();
+            Score = 0;
+            double[] scores = new double[core.CheckedHumanPlayers.Count];
+            foreach(var player in core.CheckedHumanPlayers.Values)
             {
-                teamsAndRaces.Add(player.Name, new Dictionary<int, Team>());
-                Dictionary<int, List<int>> doubles = new Dictionary<int, List<int>>();
-                for (int i = 0; i < Constants.RaceNumber; i++)
-                {
-                    List<int> tempList = new List<int>();
-                    tempList.Add(i);
-                    doubles.Add(i, tempList);
-                }
-                for (int i = 0; i < Constants.RaceNumber; i++)
-                {
-                    if (player.Races[i])
-                    {
-                        Team team = new Team();
-                        team.addMember(player);
-                        team.setRace(player, i);
-                        team.computeScore();
-                        teamsAndRaces[player.Name].Add(i, team);
-                        for (int j = 0; j < i; j++)
-                        {
-                            if (player.Races[j])
-                            {
-                                if ((teamsAndRaces[player.Name])[j].Score == team.Score)
-                                {
-                                    doubles.Remove(i);
-                                    doubles[j].Add(i);
-                                }
-                            }
-                        }
-                    }
-
-                }
-                Random rnd = new Random();
-                foreach (var i in doubles.Keys)
-                {
-                    int selected = i;
-                    do
-                    {
-                        selected = rnd.Next(i, doubles[i][doubles[i].Count - 1]);
-                    } while (!doubles[i].Contains(selected));
-                    foreach (var j in doubles[i])
-                    {
-                        if (j != selected)
-                        {
-                            teamsAndRaces[player.Name].Remove(j);
-                        }
-                    }
-                }
+                Team tempTeam = new Team();
+                tempTeam.addMember(player);
+                tempTeams.Add(player.Name, tempTeam);
             }
-            Dictionary<String, Team> bestTeams = new Dictionary<String, Team>();
-            foreach (var playerName in teamsAndRaces.Keys)
+            for (int i=0; i<Constants.Iterations; i++)
             {
-                //foreach (var i in teamsAndRaces[playerName].Keys)
-                //continuer ici
-                //recursif
+                int j = 0;
+                foreach (var player in core.CheckedHumanPlayers.Values)
+                {
+                    tempTeams[player.Name].setRace(player,player.selectRaceRandomly(rnd));
+                    scores[j] = tempTeams[player.Name].computeScore();   
+                }
+                if (i == 0)
+                {
+                    Score = Statistics.StdDev(scores);
+                    teams.Clear();
+                    foreach (var player in core.CheckedHumanPlayers.Values)
+                    {
+                        teams.Add(tempTeams[player.Name].getCopy());
+
+                    }
+                }
+                else
+                {
+                    double tempScore = Statistics.StdDev(scores);
+                    if (tempScore < Score)
+                    {
+                        teams.Clear();
+                        foreach (var player in core.CheckedHumanPlayers.Values)
+                        {
+                            teams.Add(tempTeams[player.Name].getCopy());
+                        }
+                    }
+                }
             }
             return teams;
         }
-
     }
-
-
 }

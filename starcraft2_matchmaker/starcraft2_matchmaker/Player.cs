@@ -5,7 +5,7 @@ namespace starcraft2_matchmaker
     public class Player
     {
         private string name;
-        private double[] score = new double[Constants.RaceNumber];
+        private int[] score = new int[Constants.RaceNumber];
         private int[] victory = new int[Constants.RaceNumber];
         private int[] defeat = new int[Constants.RaceNumber];
         private bool[] races = new bool[Constants.RaceNumber];
@@ -39,7 +39,7 @@ namespace starcraft2_matchmaker
             }
         }
 
-        public double[] Score
+        public int[] Score
         {
             get
             {
@@ -103,6 +103,27 @@ namespace starcraft2_matchmaker
             this.races[Constants.Zerg] = zerg;
             this.races[Constants.Protoss] = protoss;
             this.races[Constants.Random] = random;
+        }
+
+        public int selectRaceRandomly(Random rnd)
+        {
+            int selectedRace;
+            do
+            {
+                selectedRace = rnd.Next(Constants.RaceNumber);
+            }
+            while (!this.races[selectedRace]);
+            return selectedRace;
+        }
+
+        public void reset()
+        {
+            for (int i = 0; i < Constants.RaceNumber; i++)
+            {
+                victory[i] = 0;
+                defeat[i] = 0;
+                score[i] = 0;
+            }
         }
     }
 }

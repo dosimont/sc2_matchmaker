@@ -40,7 +40,12 @@ namespace starcraft2_matchmaker
             comboBoxMatchType.Items.Add(Constants.V3);
             comboBoxMatchType.Items.Add(Constants.V4);
             comboBoxMatchType.SelectedIndex = 0;
-            
+            checkedListBoxHumanPlayers.Sorted = true;
+            comboBoxWinningTeam.Enabled = false;
+            buttonValidate.Enabled = false;
+            buttonCancel.Enabled = false;
+            buttonCreateTeams.Enabled = true;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -60,7 +65,8 @@ namespace starcraft2_matchmaker
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            buttonValidate.Enabled = true;
+            buttonCancel.Enabled = true;
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -89,7 +95,7 @@ namespace starcraft2_matchmaker
                         actualizeCheckedListPlayer();
                     }
                 }
-             catch (Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
                 }
@@ -206,6 +212,11 @@ namespace starcraft2_matchmaker
 
         private void checkedListBoxHumanPlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
+            updateDetailsDisplay();
+        }
+
+        private void updateDetailsDisplay()
+        {
             List<Player> selectedHumanPlayers = new List<Player>();
             foreach (var item in checkedListBoxHumanPlayers.SelectedItems)
             {
@@ -227,22 +238,20 @@ namespace starcraft2_matchmaker
                 checkedHumanPlayers.Add(temp.Name,temp);
             }
             core.CheckedHumanPlayers = checkedHumanPlayers;
-
         }
 
         private void updateInformation(Player player)
         {
             nameContent.Text = player.Name;
-            terranContent.Text = "Win: " + player.Victory[Constants.Terran] + ", Loss: " + player.Defeat[Constants.Terran] + ", Ratio: " + player.Score[Constants.Terran].ToString("0.00");
-            zergContent.Text = "Win: " + player.Victory[Constants.Zerg] + ", Loss: " + player.Defeat[Constants.Zerg] + ", Ratio: " + player.Score[Constants.Zerg].ToString("0.00");
-            protossContent.Text = "Win: " + player.Victory[Constants.Protoss] + ", Loss: " + player.Defeat[Constants.Protoss] + ", Ratio: " + player.Score[Constants.Protoss].ToString("0.00");
-            randomContent.Text = "Win: " + player.Victory[Constants.Random] + ", Loss: " + player.Defeat[Constants.Random] + ", Ratio: " + player.Score[Constants.Random].ToString("0.00");
+            terranContent.Text = "Win: " + player.Victory[Constants.Terran] + ", Loss: " + player.Defeat[Constants.Terran] + ", Score: " + player.Score[Constants.Terran];
+            zergContent.Text = "Win: " + player.Victory[Constants.Zerg] + ", Loss: " + player.Defeat[Constants.Zerg] + ", Score: " + player.Score[Constants.Zerg];
+            protossContent.Text = "Win: " + player.Victory[Constants.Protoss] + ", Loss: " + player.Defeat[Constants.Protoss] + ", Score: " + player.Score[Constants.Protoss];
+            randomContent.Text = "Win: " + player.Victory[Constants.Random] + ", Loss: " + player.Defeat[Constants.Random] + ", Score: " + player.Score[Constants.Random];
             int overallVictory = player.Victory[Constants.Terran] + player.Victory[Constants.Zerg] + player.Victory[Constants.Protoss] + player.Victory[Constants.Random];
             int overallDefeat = player.Defeat[Constants.Terran] + player.Defeat[Constants.Zerg] + player.Defeat[Constants.Protoss] + player.Defeat[Constants.Random];
-            double overallRatio = 0;
-            if (overallVictory!=0)
-                overallRatio= (double)(overallVictory) / (double)(overallVictory + overallDefeat);
-            overallContent.Text = "Win: " + overallVictory + ", Loss: " + overallDefeat + ", Ratio: " + overallRatio.ToString("0.00");
+            int overallRatio = 0;
+            overallRatio= overallVictory - overallDefeat;
+            overallContent.Text = "Win: " + overallVictory + ", Loss: " + overallDefeat + ", Score: " + overallRatio;
             terranContent.Enabled = player.Races[Constants.Terran];
             labelTerran.Enabled = player.Races[Constants.Terran];
             zergContent.Enabled = player.Races[Constants.Zerg];
@@ -270,8 +279,91 @@ namespace starcraft2_matchmaker
 
         private void buttonCreateTeams_Click(object sender, EventArgs e)
         {
+            updateCheckedHumanPlayers();
+            if (core.CheckedHumanPlayers.Count < 2)
+            {
+                MessageBox.Show("Error: Not enough players");
+                return;
+            }
             core.MatchType = comboBoxMatchType.Text;
             core.computeMatchmaking();
+            printTeams();
+            selectTeams();
+            buttonCreateTeams.Enabled = false;
+            buttonCancel.Enabled = true;
+            comboBoxWinningTeam.Enabled = true;
+        }
+
+        private void printTeams()
+        {
+            int i = 0;
+            string str="Matchmaking score (lower is better): "+core.CurrentScore+ Environment.NewLine+Environment.NewLine;
+            foreach(var team in core.CurrentTeams)
+            {
+                i++;
+                str += "Team " + i + ":" + Environment.NewLine;
+                str += team + Environment.NewLine+Environment.NewLine;
+            }
+            richTextBoxTeams.Text = str;
+        }
+
+        private void clearTeams()
+        {
+            richTextBoxTeams.Text = "";
+        }
+
+        private void selectTeams()
+        {
+            comboBoxWinningTeam.Enabled = true;
+            for (int i = 1; i <= core.CurrentTeams.Count;i++)
+            {
+                string str = "Team " + i;
+                comboBoxWinningTeam.Items.Add(str);
+            }
+        }
+
+        private void validateTeam()
+        {
+            core.winningTeam(comboBoxWinningTeam.SelectedIndex);
+        }
+
+        private void buttonValidate_Click(object sender, EventArgs e)
+        {
+            validateTeam();
+            comboBoxWinningTeam.Enabled = false;
+            comboBoxWinningTeam.Items.Clear();
+            comboBoxWinningTeam.Text = "Select the Winning Team";
+            buttonValidate.Enabled = false;
+            buttonCancel.Enabled = false;
+            buttonCreateTeams.Enabled = true;
+            clearTeams();
+            updateDetailsDisplay();
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            comboBoxWinningTeam.Enabled = false;
+            comboBoxWinningTeam.Items.Clear();
+            comboBoxWinningTeam.Text = "Select the Winning Team";
+            buttonValidate.Enabled = false;
+            buttonCancel.Enabled = false;
+            buttonCreateTeams.Enabled = true;
+            clearTeams();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<Player> selectedHumanPlayers = new List<Player>();
+            foreach (var item in checkedListBoxHumanPlayers.SelectedItems)
+            {
+                Player temp = (Player)item;
+                selectedHumanPlayers.Add(temp);
+            }
+            if (selectedHumanPlayers.Count == 1)
+            {
+                selectedHumanPlayers[0].reset();
+            }
+            updateDetailsDisplay();
         }
     }
 }

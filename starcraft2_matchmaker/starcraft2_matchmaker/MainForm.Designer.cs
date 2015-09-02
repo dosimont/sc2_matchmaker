@@ -65,6 +65,8 @@ namespace starcraft2_matchmaker
             this.labelDetails = new System.Windows.Forms.Label();
             this.labelOverall = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.richTextBoxTeams = new System.Windows.Forms.RichTextBox();
+            this.buttonReset = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -202,26 +204,28 @@ namespace starcraft2_matchmaker
             // 
             // buttonValidate
             // 
-            this.buttonValidate.Location = new System.Drawing.Point(349, 669);
+            this.buttonValidate.Location = new System.Drawing.Point(349, 725);
             this.buttonValidate.Name = "buttonValidate";
             this.buttonValidate.Size = new System.Drawing.Size(75, 23);
             this.buttonValidate.TabIndex = 3;
             this.buttonValidate.Text = "Validate";
             this.buttonValidate.UseVisualStyleBackColor = true;
+            this.buttonValidate.Click += new System.EventHandler(this.buttonValidate_Click);
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(272, 669);
+            this.buttonCancel.Location = new System.Drawing.Point(272, 725);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // comboBoxWinningTeam
             // 
             this.comboBoxWinningTeam.FormattingEnabled = true;
-            this.comboBoxWinningTeam.Location = new System.Drawing.Point(12, 642);
+            this.comboBoxWinningTeam.Location = new System.Drawing.Point(12, 698);
             this.comboBoxWinningTeam.Name = "comboBoxWinningTeam";
             this.comboBoxWinningTeam.Size = new System.Drawing.Size(412, 21);
             this.comboBoxWinningTeam.TabIndex = 6;
@@ -233,7 +237,7 @@ namespace starcraft2_matchmaker
             this.labelMatchmaking.AutoSize = true;
             this.labelMatchmaking.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMatchmaking.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.labelMatchmaking.Location = new System.Drawing.Point(9, 468);
+            this.labelMatchmaking.Location = new System.Drawing.Point(12, 459);
             this.labelMatchmaking.Name = "labelMatchmaking";
             this.labelMatchmaking.Size = new System.Drawing.Size(59, 13);
             this.labelMatchmaking.TabIndex = 7;
@@ -256,7 +260,7 @@ namespace starcraft2_matchmaker
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label2.Location = new System.Drawing.Point(9, 616);
+            this.label2.Location = new System.Drawing.Point(9, 672);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 13);
             this.label2.TabIndex = 10;
@@ -429,11 +433,31 @@ namespace starcraft2_matchmaker
             this.tableLayoutPanel1.TabIndex = 8;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
+            // richTextBoxTeams
+            // 
+            this.richTextBoxTeams.Location = new System.Drawing.Point(15, 484);
+            this.richTextBoxTeams.Name = "richTextBoxTeams";
+            this.richTextBoxTeams.Size = new System.Drawing.Size(407, 176);
+            this.richTextBoxTeams.TabIndex = 11;
+            this.richTextBoxTeams.Text = "";
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(373, 284);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(51, 23);
+            this.buttonReset.TabIndex = 12;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 704);
+            this.ClientSize = new System.Drawing.Size(434, 755);
+            this.Controls.Add(this.buttonReset);
+            this.Controls.Add(this.richTextBoxTeams);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -501,6 +525,8 @@ namespace starcraft2_matchmaker
         private System.Windows.Forms.Label labelDetails;
         private System.Windows.Forms.Label labelOverall;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.RichTextBox richTextBoxTeams;
+        private System.Windows.Forms.Button buttonReset;
     }
 }
 

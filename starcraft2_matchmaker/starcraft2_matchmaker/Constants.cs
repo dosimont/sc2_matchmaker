@@ -52,6 +52,8 @@ namespace starcraft2_matchmaker
         public const int FVictoryRandom = 11;
         public const int FDefeatRandom = 12;
 
-        public const double CountFactor = 0.5;
+        public const int CountFactor = 0;
+
+        public const int Iterations = 100000;
     }
 }

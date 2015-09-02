@@ -11,8 +11,10 @@ namespace starcraft2_matchmaker
     {
         private Dictionary<string, Player> humanPlayers;
         private Dictionary<string, Player> checkedHumanPlayers;
+        private List<Team> currentTeams;
         private string currentFile;
         private string matchType;
+        private double currentScore;
 
         internal Dictionary<string, Player> HumanPlayers
         {
@@ -66,6 +68,32 @@ namespace starcraft2_matchmaker
             }
         }
 
+        public List<Team> CurrentTeams
+        {
+            get
+            {
+                return currentTeams;
+            }
+
+            set
+            {
+                currentTeams = value;
+            }
+        }
+
+        public double CurrentScore
+        {
+            get
+            {
+                return currentScore;
+            }
+
+            set
+            {
+                currentScore = value;
+            }
+        }
+
         public Core()
         {
             HumanPlayers = new Dictionary<string, Player>();
@@ -95,27 +123,6 @@ namespace starcraft2_matchmaker
             HumanPlayers.Add(newname, player);
         }
 
-        public void addPlayerVictory(string name, int race)
-        {
-            if (race < Constants.RaceNumber && race > 0)
-            {
-                if (HumanPlayers.ContainsKey(name))
-                {
-                    HumanPlayers[name].Victory[race] += 1;
-                }
-            }
-        }
-
-        public void addPlayerDefeat(string name, int race)
-        {
-            if (race < Constants.RaceNumber && race > 0)
-            {
-                if (HumanPlayers.ContainsKey(name))
-                {
-                    HumanPlayers[name].Defeat[race] += 1;
-                }
-            }
-        }
 
         public void computeScores()
         {
@@ -123,14 +130,7 @@ namespace starcraft2_matchmaker
             {
                 foreach (var item in HumanPlayers)
                 {
-                    if (HumanPlayers[item.Key].Victory[i] == 0)
-                    {
-                        HumanPlayers[item.Key].Score[i] = 0;
-                    }
-                    else
-                    {
-                        HumanPlayers[item.Key].Score[i] = (double)HumanPlayers[item.Key].Victory[i] / (double)(HumanPlayers[item.Key].Victory[i] + HumanPlayers[item.Key].Defeat[i]);
-                    }
+                    HumanPlayers[item.Key].Score[i] = HumanPlayers[item.Key].Victory[i] - HumanPlayers[item.Key].Defeat[i];
                 }            
             }
         }
@@ -145,11 +145,30 @@ namespace starcraft2_matchmaker
         {
             PlayerReader playerReader = new PlayerReader(currentFile);
             HumanPlayers=playerReader.readPlayers();
-            computeScores();
         }
-        public List<Team> computeMatchmaking()
+        public void computeMatchmaking()
         {
-            return null;//itervenir ici
+            computeScores();
+            Matchmaker matchMaker = new Matchmaker(this);
+            matchMaker.checkMatch();
+            CurrentTeams=matchMaker.computeTeams();
+            CurrentScore = matchMaker.Score;
+        }
+
+        public void winningTeam(int index)
+        {
+            for (int i = 0; i < currentTeams.Count; i++)
+            {
+                if (i != index)
+                {
+                    currentTeams[i].addDefeat();
+                }
+                else
+                {
+                    currentTeams[i].addVictory();
+                }
+            }
+            computeScores();
         }
 
     }
