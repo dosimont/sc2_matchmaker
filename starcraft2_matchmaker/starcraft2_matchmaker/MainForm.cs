@@ -218,6 +218,18 @@ namespace starcraft2_matchmaker
             }
         }
 
+        private void updateCheckedHumanPlayers()
+        {
+            Dictionary<string, Player> checkedHumanPlayers= new Dictionary<string, Player>() ;
+            foreach (var item in checkedListBoxHumanPlayers.CheckedItems)
+            {
+                Player temp = (Player)item;
+                checkedHumanPlayers.Add(temp.Name,temp);
+            }
+            core.CheckedHumanPlayers = checkedHumanPlayers;
+
+        }
+
         private void updateInformation(Player player)
         {
             nameContent.Text = player.Name;
@@ -231,6 +243,19 @@ namespace starcraft2_matchmaker
             if (overallVictory!=0)
                 overallRatio= (double)(overallVictory) / (double)(overallVictory + overallDefeat);
             overallContent.Text = "Win: " + overallVictory + ", Loss: " + overallDefeat + ", Ratio: " + overallRatio.ToString("0.00");
+            terranContent.Enabled = player.Races[Constants.Terran];
+            labelTerran.Enabled = player.Races[Constants.Terran];
+            zergContent.Enabled = player.Races[Constants.Zerg];
+            labelZerg.Enabled = player.Races[Constants.Zerg];
+            protossContent.Enabled = player.Races[Constants.Protoss];
+            labelProtoss.Enabled = player.Races[Constants.Protoss];
+            randomContent.Enabled = player.Races[Constants.Random];
+            labelRandom.Enabled = player.Races[Constants.Random];
+            terranContent.ForeColor = labelTerran.ForeColor;
+            zergContent.ForeColor = labelZerg.ForeColor;
+            protossContent.ForeColor = labelProtoss.ForeColor;
+            randomContent.ForeColor = labelRandom.ForeColor;
+            overallContent.ForeColor = labelOverall.ForeColor;
         }
 
         private void labelOverall_Click(object sender, EventArgs e)
@@ -241,6 +266,12 @@ namespace starcraft2_matchmaker
         private void label1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonCreateTeams_Click(object sender, EventArgs e)
+        {
+            core.MatchType = comboBoxMatchType.Text;
+            core.computeMatchmaking();
         }
     }
 }

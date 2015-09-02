@@ -22,6 +22,22 @@ namespace starcraft2_matchmaker
         public const string V4 = "4v4";
         public const string V22 = "2v2v2";
 
+        public const int TotalMaxPlayers_FFA = -1;
+        public const int TotalMaxPlayers_BAL = -1;
+        public const int TotalMaxPlayers_V1 = 2;
+        public const int TotalMaxPlayers_V2 = 4;
+        public const int TotalMaxPlayers_V3 = 6;
+        public const int TotalMaxPlayers_V4 = 8;
+        public const int TotalMaxPlayers_V22 = 8;
+
+        public const int TeamMaxPlayers_FFA = 1;
+        public const int TeamMaxPlayers_BAL = -1;
+        public const int TeamMaxPlayers_V1 = 1;
+        public const int TeamMaxPlayers_V2 = 2;
+        public const int TeamMaxPlayers_V3 = 3;
+        public const int TeamMaxPlayers_V4 = 4;
+        public const int TeamMaxPlayers_V22 = 2;
+
         public const int FName = 0;
         public const int FBoolTerran = 1;
         public const int FVictoryTerran = 2;
@@ -35,5 +51,7 @@ namespace starcraft2_matchmaker
         public const int FBoolRandom = 10;
         public const int FVictoryRandom = 11;
         public const int FDefeatRandom = 12;
+
+        public const double CountFactor = 0.5;
     }
 }

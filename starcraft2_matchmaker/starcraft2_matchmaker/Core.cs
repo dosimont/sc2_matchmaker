@@ -9,8 +9,10 @@ namespace starcraft2_matchmaker
 {
     class Core
     {
-        Dictionary<string, Player> humanPlayers;
+        private Dictionary<string, Player> humanPlayers;
+        private Dictionary<string, Player> checkedHumanPlayers;
         private string currentFile;
+        private string matchType;
 
         internal Dictionary<string, Player> HumanPlayers
         {
@@ -35,6 +37,32 @@ namespace starcraft2_matchmaker
             set
             {
                 currentFile = value;
+            }
+        }
+
+        public Dictionary<string, Player> CheckedHumanPlayers
+        {
+            get
+            {
+                return checkedHumanPlayers;
+            }
+
+            set
+            {
+                checkedHumanPlayers = value;
+            }
+        }
+
+        public string MatchType
+        {
+            get
+            {
+                return matchType;
+            }
+
+            set
+            {
+                matchType = value;
             }
         }
 
@@ -119,7 +147,10 @@ namespace starcraft2_matchmaker
             HumanPlayers=playerReader.readPlayers();
             computeScores();
         }
-
+        public List<Team> computeMatchmaking()
+        {
+            return null;//itervenir ici
+        }
 
     }
 }

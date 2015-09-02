@@ -94,8 +94,7 @@ namespace starcraft2_matchmaker
         override
         public string ToString()
         {
-            return name + " (Terran: " + score[Constants.Terran].ToString("0.00") + ", Zerg: " + score[Constants.Zerg].ToString("0.00")
-                + ", Protoss: " + score[Constants.Protoss].ToString("0.00") + ", Random: " + score[Constants.Random].ToString("0.00") + ")";
+            return name;
         }
 
         public void raceMask(bool terran, bool zerg, bool protoss, bool random)
