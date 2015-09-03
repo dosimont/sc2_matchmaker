@@ -135,7 +135,6 @@ namespace sc2_matchmaker
             int[] scores = new int[teamNumber];
             for (int i = 0; i < Constants.Iterations; i++)
             {
-                int averageElo;
                 tempTeams.Clear();
                 playerSelecter.reset();
                 for (int j = 0; j < teamNumber; j++)
@@ -163,7 +162,6 @@ namespace sc2_matchmaker
                 {
                     scores[j] = tempTeams[j].computeEloTeam();
                 }
-                averageElo = (int) Statistics.Mean(scores);
                 double tempScore = Statistics.StdDev(scores);
                 if (tempScore < score||(i==0))
                 {
@@ -171,8 +169,8 @@ namespace sc2_matchmaker
                     teams.Clear();
                     for (int j = 0; j < teamNumber; j++)
                     {
-                    tempTeams[j].EloAdv = averageElo;
-                    teams.Add(tempTeams[j].getCopy());
+                        tempTeams[j].EloAdv = scores.Sum()-tempTeams[j].EloTeam/(teamNumber-1);
+                        teams.Add(tempTeams[j].getCopy());
                     }
                 }
             }

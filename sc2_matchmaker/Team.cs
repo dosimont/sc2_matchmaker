@@ -82,11 +82,11 @@ namespace sc2_matchmaker
             return EloTeam;
         }
 
-        public void computeNewEloPlayers(bool victory)
+        public void computeNewEloPlayers(bool victory, int teamNumber)
         {
             foreach (var member in members.Values)
             {
-                Elo.compute(victory, member, selectedRace[member.Name], eloTeam, eloAdv);
+                Elo.compute(victory, member, selectedRace[member.Name], eloTeam, eloAdv, teamNumber);
             }
         }
 

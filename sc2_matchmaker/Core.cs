@@ -162,7 +162,7 @@ namespace sc2_matchmaker
         {
             for (int i = 0; i < currentTeams.Count; i++)
             {
-                currentTeams[i].computeNewEloPlayers(i == index);
+                currentTeams[i].computeNewEloPlayers(i == index, currentTeams.Count);
 
             }
         }

@@ -38,24 +38,23 @@ namespace sc2_matchmaker
             return K;
         }
 
-        public static void compute(bool victory, Player player, int race, int eloTeam, int eloAdv)
+        public static void compute(bool victory, Player player, int race, int eloTeam, int eloAdv, int teamNumber)
         {
             int W = Constants.WDefeat;
+            int coeff;
             if (victory)
             {
                 W = Constants.WVictory;
                 player.Victory[race]++;
+                coeff = teamNumber - 1;
             }
             else
             {
                 player.Defeat[race]++;
+                coeff = 1;
             }
-            double incr = (double) getK(player, race) * ((double) W - proba(eloTeam, eloAdv));
-            player.Elo[race] += (int) incr;
-            if (player.Elo[race] < 0)
-            {
-                player.Elo[race] = 0;
-            }
+            double incr = (double) getK(player, race) * ((double) W - proba(eloTeam, eloAdv)) * coeff;
+            player.Elo[race] += (int)incr;
         }
 
         public static double proba(int eloTeam, int eloAdv)
