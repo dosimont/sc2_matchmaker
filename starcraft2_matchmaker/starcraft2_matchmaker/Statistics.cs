@@ -8,24 +8,24 @@ namespace starcraft2_matchmaker
 {
     public static class Statistics
     {
-        public static double StdDev(double[] t)
+        public static double StdDev(int[] t)
         {
             double mean = Mean(t);
             double sum = 0.0;
             for (int i = 0; i < t.Length; i++)
             {
-                double delta = t[i] - mean;
+                double delta = (double) t[i] - mean;
                 sum += delta * delta;
             }
             return Math.Sqrt(sum / (t.Length));
         }
 
-        public static double Mean(double[] t)
+        public static double Mean(int[] t)
         {
             double sum = 0.0;
             for (int i = 0; i < t.Length; i++)
             {
-                sum += t[i];
+                sum += (double) t[i];
             }
             return sum /= t.Length;
         }

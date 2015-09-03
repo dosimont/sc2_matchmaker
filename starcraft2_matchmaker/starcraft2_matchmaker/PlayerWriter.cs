@@ -28,6 +28,7 @@ namespace starcraft2_matchmaker
                         row.Add(item.Races[i].ToString());
                         row.Add(item.Victory[i].ToString());
                         row.Add(item.Defeat[i].ToString());
+                        row.Add(item.Elo[i].ToString());
                     }
                     writer.WriteRow(row);
                 }

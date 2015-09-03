@@ -33,6 +33,10 @@ namespace starcraft2_matchmaker
                     int.TryParse(row[Constants.FDefeatZerg], out temp.Defeat[Constants.Zerg]);
                     int.TryParse(row[Constants.FDefeatProtoss], out temp.Defeat[Constants.Protoss]);
                     int.TryParse(row[Constants.FDefeatRandom], out temp.Defeat[Constants.Random]);
+                    int.TryParse(row[Constants.FEloTerran], out temp.Elo[Constants.Terran]);
+                    int.TryParse(row[Constants.FEloTerran], out temp.Elo[Constants.Zerg]);
+                    int.TryParse(row[Constants.FEloTerran], out temp.Elo[Constants.Protoss]);
+                    int.TryParse(row[Constants.FEloTerran], out temp.Elo[Constants.Random]);
                 }
             }
             return listPlayers;

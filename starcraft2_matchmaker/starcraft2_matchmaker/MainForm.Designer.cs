@@ -52,7 +52,6 @@ namespace starcraft2_matchmaker
             this.label2 = new System.Windows.Forms.Label();
             this.labelResult = new System.Windows.Forms.Label();
             this.labelRandom = new System.Windows.Forms.Label();
-            this.overallContent = new System.Windows.Forms.Label();
             this.randomContent = new System.Windows.Forms.Label();
             this.protossContent = new System.Windows.Forms.Label();
             this.zergContent = new System.Windows.Forms.Label();
@@ -63,7 +62,6 @@ namespace starcraft2_matchmaker
             this.labelTerran = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.labelDetails = new System.Windows.Forms.Label();
-            this.labelOverall = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.richTextBoxTeams = new System.Windows.Forms.RichTextBox();
             this.buttonReset = new System.Windows.Forms.Button();
@@ -279,26 +277,17 @@ namespace starcraft2_matchmaker
             this.labelRandom.AutoSize = true;
             this.labelRandom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRandom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.labelRandom.Location = new System.Drawing.Point(3, 150);
+            this.labelRandom.Location = new System.Drawing.Point(3, 175);
             this.labelRandom.Name = "labelRandom";
             this.labelRandom.Size = new System.Drawing.Size(50, 13);
             this.labelRandom.TabIndex = 7;
             this.labelRandom.Text = "Random:";
             this.labelRandom.Click += new System.EventHandler(this.labelOverall_Click);
             // 
-            // overallContent
-            // 
-            this.overallContent.AutoSize = true;
-            this.overallContent.Location = new System.Drawing.Point(63, 180);
-            this.overallContent.Name = "overallContent";
-            this.overallContent.Size = new System.Drawing.Size(0, 13);
-            this.overallContent.TabIndex = 7;
-            this.overallContent.Click += new System.EventHandler(this.labelOverall_Click);
-            // 
             // randomContent
             // 
             this.randomContent.AutoSize = true;
-            this.randomContent.Location = new System.Drawing.Point(63, 150);
+            this.randomContent.Location = new System.Drawing.Point(63, 175);
             this.randomContent.Name = "randomContent";
             this.randomContent.Size = new System.Drawing.Size(0, 13);
             this.randomContent.TabIndex = 8;
@@ -306,7 +295,7 @@ namespace starcraft2_matchmaker
             // protossContent
             // 
             this.protossContent.AutoSize = true;
-            this.protossContent.Location = new System.Drawing.Point(63, 120);
+            this.protossContent.Location = new System.Drawing.Point(63, 140);
             this.protossContent.Name = "protossContent";
             this.protossContent.Size = new System.Drawing.Size(0, 13);
             this.protossContent.TabIndex = 8;
@@ -314,7 +303,7 @@ namespace starcraft2_matchmaker
             // zergContent
             // 
             this.zergContent.AutoSize = true;
-            this.zergContent.Location = new System.Drawing.Point(63, 90);
+            this.zergContent.Location = new System.Drawing.Point(63, 105);
             this.zergContent.Name = "zergContent";
             this.zergContent.Size = new System.Drawing.Size(0, 13);
             this.zergContent.TabIndex = 8;
@@ -322,7 +311,7 @@ namespace starcraft2_matchmaker
             // terranContent
             // 
             this.terranContent.AutoSize = true;
-            this.terranContent.Location = new System.Drawing.Point(63, 60);
+            this.terranContent.Location = new System.Drawing.Point(63, 70);
             this.terranContent.Name = "terranContent";
             this.terranContent.Size = new System.Drawing.Size(0, 13);
             this.terranContent.TabIndex = 8;
@@ -330,7 +319,7 @@ namespace starcraft2_matchmaker
             // nameContent
             // 
             this.nameContent.AutoSize = true;
-            this.nameContent.Location = new System.Drawing.Point(63, 30);
+            this.nameContent.Location = new System.Drawing.Point(63, 35);
             this.nameContent.Name = "nameContent";
             this.nameContent.Size = new System.Drawing.Size(0, 13);
             this.nameContent.TabIndex = 8;
@@ -340,7 +329,7 @@ namespace starcraft2_matchmaker
             this.labelZerg.AutoSize = true;
             this.labelZerg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelZerg.ForeColor = System.Drawing.Color.Maroon;
-            this.labelZerg.Location = new System.Drawing.Point(3, 90);
+            this.labelZerg.Location = new System.Drawing.Point(3, 105);
             this.labelZerg.Name = "labelZerg";
             this.labelZerg.Size = new System.Drawing.Size(32, 13);
             this.labelZerg.TabIndex = 7;
@@ -351,7 +340,7 @@ namespace starcraft2_matchmaker
             this.labelProtoss.AutoSize = true;
             this.labelProtoss.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelProtoss.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.labelProtoss.Location = new System.Drawing.Point(3, 120);
+            this.labelProtoss.Location = new System.Drawing.Point(3, 140);
             this.labelProtoss.Name = "labelProtoss";
             this.labelProtoss.Size = new System.Drawing.Size(45, 13);
             this.labelProtoss.TabIndex = 7;
@@ -362,7 +351,7 @@ namespace starcraft2_matchmaker
             this.labelTerran.AutoSize = true;
             this.labelTerran.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTerran.ForeColor = System.Drawing.Color.Blue;
-            this.labelTerran.Location = new System.Drawing.Point(3, 60);
+            this.labelTerran.Location = new System.Drawing.Point(3, 70);
             this.labelTerran.Name = "labelTerran";
             this.labelTerran.Size = new System.Drawing.Size(41, 13);
             this.labelTerran.TabIndex = 7;
@@ -373,7 +362,7 @@ namespace starcraft2_matchmaker
             this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelName.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.labelName.Location = new System.Drawing.Point(3, 30);
+            this.labelName.Location = new System.Drawing.Point(3, 35);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(38, 13);
             this.labelName.TabIndex = 7;
@@ -390,23 +379,11 @@ namespace starcraft2_matchmaker
             this.labelDetails.TabIndex = 7;
             this.labelDetails.Text = "Details";
             // 
-            // labelOverall
-            // 
-            this.labelOverall.AutoSize = true;
-            this.labelOverall.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOverall.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.labelOverall.Location = new System.Drawing.Point(3, 180);
-            this.labelOverall.Name = "labelOverall";
-            this.labelOverall.Size = new System.Drawing.Size(43, 13);
-            this.labelOverall.TabIndex = 9;
-            this.labelOverall.Text = "Overall:";
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.7533F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.2467F));
-            this.tableLayoutPanel1.Controls.Add(this.labelOverall, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.labelDetails, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelName, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.labelTerran, 0, 2);
@@ -417,18 +394,16 @@ namespace starcraft2_matchmaker
             this.tableLayoutPanel1.Controls.Add(this.zergContent, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.protossContent, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.randomContent, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.overallContent, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.labelRandom, 0, 5);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(206, 64);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28531F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28531F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28531F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28531F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28531F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28531F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28816F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(218, 214);
             this.tableLayoutPanel1.TabIndex = 8;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
@@ -512,7 +487,6 @@ namespace starcraft2_matchmaker
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelResult;
         private System.Windows.Forms.Label labelRandom;
-        private System.Windows.Forms.Label overallContent;
         private System.Windows.Forms.Label randomContent;
         private System.Windows.Forms.Label protossContent;
         private System.Windows.Forms.Label zergContent;
@@ -523,7 +497,6 @@ namespace starcraft2_matchmaker
         private System.Windows.Forms.Label labelTerran;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelDetails;
-        private System.Windows.Forms.Label labelOverall;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.RichTextBox richTextBoxTeams;
         private System.Windows.Forms.Button buttonReset;

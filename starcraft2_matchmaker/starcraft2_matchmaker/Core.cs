@@ -123,18 +123,6 @@ namespace starcraft2_matchmaker
             HumanPlayers.Add(newname, player);
         }
 
-
-        public void computeScores()
-        {
-            for (int i=0; i<Constants.RaceNumber; i++)
-            {
-                foreach (var item in HumanPlayers)
-                {
-                    HumanPlayers[item.Key].Score[i] = HumanPlayers[item.Key].Victory[i] - HumanPlayers[item.Key].Defeat[i];
-                }            
-            }
-        }
-
         public void savePlayers()
         {
             PlayerWriter playerWriter = new PlayerWriter(currentFile);
@@ -148,9 +136,14 @@ namespace starcraft2_matchmaker
         }
         public void computeMatchmaking()
         {
-            computeScores();
             Matchmaker matchMaker = new Matchmaker(this);
-            matchMaker.checkMatch();
+            try {
+                matchMaker.checkMatch();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             CurrentTeams=matchMaker.computeTeams();
             CurrentScore = matchMaker.Score;
         }
@@ -159,16 +152,9 @@ namespace starcraft2_matchmaker
         {
             for (int i = 0; i < currentTeams.Count; i++)
             {
-                if (i != index)
-                {
-                    currentTeams[i].addDefeat();
-                }
-                else
-                {
-                    currentTeams[i].addVictory();
-                }
+                currentTeams[i].computeNewEloPlayers(i == index);
+
             }
-            computeScores();
         }
 
     }

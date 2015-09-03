@@ -10,34 +10,32 @@ namespace starcraft2_matchmaker
     {
         Dictionary<string, Player> members = new Dictionary<string, Player>();
         Dictionary<string, int> selectedRace = new Dictionary<string, int>();
-        double score=0;
+        int eloTeam;
+        int eloAdv;
 
-        public double Score
+        public int EloTeam
         {
             get
             {
-                return score;
+                return eloTeam;
             }
 
             set
             {
-                score = value;
+                eloTeam = value;
             }
         }
 
-        public void addVictory()
+        public int EloAdv
         {
-            foreach (var member in members.Values)
+            get
             {
-                member.Victory[selectedRace[member.Name]]++;
+                return eloAdv;
             }
-        }
 
-        public void addDefeat()
-        {
-            foreach (var member in members.Values)
+            set
             {
-                member.Defeat[selectedRace[member.Name]]++;
+                eloAdv = value;
             }
         }
 
@@ -56,15 +54,24 @@ namespace starcraft2_matchmaker
         {
             selectedRace[player.Name]= race;
         }
-        public double computeScore()
+
+        public int computeEloTeam()
         {
-            Score = members.Count * Constants.CountFactor;
+            EloTeam = 0;
             foreach(var member in members.Values)
             {
-                Score += (double) member.Score[selectedRace[member.Name]];
+                EloTeam += member.Elo[selectedRace[member.Name]];
             }
-            Score /= members.Count;
-            return Score;
+            EloTeam /= members.Count;
+            return EloTeam;
+        }
+
+        public void computeNewEloPlayers(bool victory)
+        {
+            foreach (var member in members.Values)
+            {
+                Elo.compute(victory, member, selectedRace[member.Name], eloTeam, eloAdv);
+            }
         }
 
         public Team getCopy()
@@ -74,7 +81,8 @@ namespace starcraft2_matchmaker
             {
                 copy.addMember(player, selectedRace[player.Name]);
             }
-            copy.computeScore();
+            copy.EloTeam=eloTeam;
+            copy.EloAdv = eloAdv;
             return copy;
         }
 
@@ -106,7 +114,7 @@ namespace starcraft2_matchmaker
                 }
                    str+= race+") "+Environment.NewLine;
             }
-            str+="Score:" +computeScore();
+            str+="Score:" +computeEloTeam();
             return str;
         }
     }

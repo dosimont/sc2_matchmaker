@@ -33,12 +33,12 @@ namespace starcraft2_matchmaker
         {
             InitializeComponent();
             comboBoxMatchType.Items.Add(Constants.FFA);
-            comboBoxMatchType.Items.Add(Constants.BAL);
+            //comboBoxMatchType.Items.Add(Constants.BAL);
             comboBoxMatchType.Items.Add(Constants.V1);
             comboBoxMatchType.Items.Add(Constants.V2);
-            comboBoxMatchType.Items.Add(Constants.V22);
+            //comboBoxMatchType.Items.Add(Constants.V22);
             comboBoxMatchType.Items.Add(Constants.V3);
-            comboBoxMatchType.Items.Add(Constants.V4);
+            //comboBoxMatchType.Items.Add(Constants.V4);
             comboBoxMatchType.SelectedIndex = 0;
             checkedListBoxHumanPlayers.Sorted = true;
             comboBoxWinningTeam.Enabled = false;
@@ -243,15 +243,10 @@ namespace starcraft2_matchmaker
         private void updateInformation(Player player)
         {
             nameContent.Text = player.Name;
-            terranContent.Text = "Win: " + player.Victory[Constants.Terran] + ", Loss: " + player.Defeat[Constants.Terran] + ", Score: " + player.Score[Constants.Terran];
-            zergContent.Text = "Win: " + player.Victory[Constants.Zerg] + ", Loss: " + player.Defeat[Constants.Zerg] + ", Score: " + player.Score[Constants.Zerg];
-            protossContent.Text = "Win: " + player.Victory[Constants.Protoss] + ", Loss: " + player.Defeat[Constants.Protoss] + ", Score: " + player.Score[Constants.Protoss];
-            randomContent.Text = "Win: " + player.Victory[Constants.Random] + ", Loss: " + player.Defeat[Constants.Random] + ", Score: " + player.Score[Constants.Random];
-            int overallVictory = player.Victory[Constants.Terran] + player.Victory[Constants.Zerg] + player.Victory[Constants.Protoss] + player.Victory[Constants.Random];
-            int overallDefeat = player.Defeat[Constants.Terran] + player.Defeat[Constants.Zerg] + player.Defeat[Constants.Protoss] + player.Defeat[Constants.Random];
-            int overallRatio = 0;
-            overallRatio= overallVictory - overallDefeat;
-            overallContent.Text = "Win: " + overallVictory + ", Loss: " + overallDefeat + ", Score: " + overallRatio;
+            terranContent.Text = "Win: " + player.Victory[Constants.Terran] + ", Loss: " + player.Defeat[Constants.Terran] + ", Score: " + player.Elo[Constants.Terran];
+            zergContent.Text = "Win: " + player.Victory[Constants.Zerg] + ", Loss: " + player.Defeat[Constants.Zerg] + ", Score: " + player.Elo[Constants.Zerg];
+            protossContent.Text = "Win: " + player.Victory[Constants.Protoss] + ", Loss: " + player.Defeat[Constants.Protoss] + ", Score: " + player.Elo[Constants.Protoss];
+            randomContent.Text = "Win: " + player.Victory[Constants.Random] + ", Loss: " + player.Defeat[Constants.Random] + ", Score: " + player.Elo[Constants.Random];
             terranContent.Enabled = player.Races[Constants.Terran];
             labelTerran.Enabled = player.Races[Constants.Terran];
             zergContent.Enabled = player.Races[Constants.Zerg];
@@ -264,7 +259,6 @@ namespace starcraft2_matchmaker
             zergContent.ForeColor = labelZerg.ForeColor;
             protossContent.ForeColor = labelProtoss.ForeColor;
             randomContent.ForeColor = labelRandom.ForeColor;
-            overallContent.ForeColor = labelOverall.ForeColor;
         }
 
         private void labelOverall_Click(object sender, EventArgs e)
@@ -280,24 +274,26 @@ namespace starcraft2_matchmaker
         private void buttonCreateTeams_Click(object sender, EventArgs e)
         {
             updateCheckedHumanPlayers();
-            if (core.CheckedHumanPlayers.Count < 2)
-            {
-                MessageBox.Show("Error: Not enough players");
-                return;
-            }
+
             core.MatchType = comboBoxMatchType.Text;
-            core.computeMatchmaking();
-            printTeams();
-            selectTeams();
-            buttonCreateTeams.Enabled = false;
-            buttonCancel.Enabled = true;
-            comboBoxWinningTeam.Enabled = true;
+            try {
+                core.computeMatchmaking();
+                printTeams();
+                selectTeams();
+                buttonCreateTeams.Enabled = false;
+                buttonCancel.Enabled = true;
+                comboBoxWinningTeam.Enabled = true;
+            }catch(Exception ex)
+            {
+            MessageBox.Show("Error: "+ex.Message);
+             return;
+            }
         }
 
         private void printTeams()
         {
             int i = 0;
-            string str="Matchmaking score (lower is better): "+core.CurrentScore+ Environment.NewLine+Environment.NewLine;
+            string str="Matchmaking score (lower is better): "+(int)core.CurrentScore+ Environment.NewLine+Environment.NewLine;
             foreach(var team in core.CurrentTeams)
             {
                 i++;

@@ -5,7 +5,7 @@ namespace starcraft2_matchmaker
     public class Player
     {
         private string name;
-        private int[] score = new int[Constants.RaceNumber];
+        private int[] elo = new int[Constants.RaceNumber];
         private int[] victory = new int[Constants.RaceNumber];
         private int[] defeat = new int[Constants.RaceNumber];
         private bool[] races = new bool[Constants.RaceNumber];
@@ -18,7 +18,7 @@ namespace starcraft2_matchmaker
             {
                 victory[i] = 0;
                 defeat[i] = 0;
-                score[i] = 0;
+                elo[i] = Constants.StartElo;
             }
             this.races[Constants.Terran] = terran;
             this.races[Constants.Zerg] = zerg;
@@ -39,16 +39,16 @@ namespace starcraft2_matchmaker
             }
         }
 
-        public int[] Score
+        public int[] Elo
         {
             get
             {
-                return score;
+                return elo;
             }
 
             set
             {
-                score = value;
+                elo = value;
             }
         }
 
@@ -122,7 +122,7 @@ namespace starcraft2_matchmaker
             {
                 victory[i] = 0;
                 defeat[i] = 0;
-                score[i] = 0;
+                elo[i] = Constants.StartElo;
             }
         }
     }
