@@ -40,7 +40,6 @@ namespace starcraft2_matchmaker
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonModify = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
-            this.checkBoxEnableIA = new System.Windows.Forms.CheckBox();
             this.checkedListBoxHumanPlayers = new System.Windows.Forms.CheckedListBox();
             this.comboBoxMatchType = new System.Windows.Forms.ComboBox();
             this.buttonCreateTeams = new System.Windows.Forms.Button();
@@ -160,18 +159,6 @@ namespace starcraft2_matchmaker
             this.buttonRemove.UseVisualStyleBackColor = true;
             this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
-            // checkBoxEnableIA
-            // 
-            this.checkBoxEnableIA.AutoSize = true;
-            this.checkBoxEnableIA.Enabled = false;
-            this.checkBoxEnableIA.Location = new System.Drawing.Point(12, 356);
-            this.checkBoxEnableIA.Name = "checkBoxEnableIA";
-            this.checkBoxEnableIA.Size = new System.Drawing.Size(72, 17);
-            this.checkBoxEnableIA.TabIndex = 4;
-            this.checkBoxEnableIA.Text = "Enable IA";
-            this.checkBoxEnableIA.UseVisualStyleBackColor = true;
-            this.checkBoxEnableIA.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // checkedListBoxHumanPlayers
             // 
             this.checkedListBoxHumanPlayers.FormattingEnabled = true;
@@ -184,7 +171,7 @@ namespace starcraft2_matchmaker
             // comboBoxMatchType
             // 
             this.comboBoxMatchType.FormattingEnabled = true;
-            this.comboBoxMatchType.Location = new System.Drawing.Point(12, 390);
+            this.comboBoxMatchType.Location = new System.Drawing.Point(15, 358);
             this.comboBoxMatchType.Name = "comboBoxMatchType";
             this.comboBoxMatchType.Size = new System.Drawing.Size(412, 21);
             this.comboBoxMatchType.TabIndex = 6;
@@ -192,7 +179,7 @@ namespace starcraft2_matchmaker
             // 
             // buttonCreateTeams
             // 
-            this.buttonCreateTeams.Location = new System.Drawing.Point(320, 417);
+            this.buttonCreateTeams.Location = new System.Drawing.Point(323, 385);
             this.buttonCreateTeams.Name = "buttonCreateTeams";
             this.buttonCreateTeams.Size = new System.Drawing.Size(104, 23);
             this.buttonCreateTeams.TabIndex = 3;
@@ -202,7 +189,7 @@ namespace starcraft2_matchmaker
             // 
             // buttonValidate
             // 
-            this.buttonValidate.Location = new System.Drawing.Point(349, 725);
+            this.buttonValidate.Location = new System.Drawing.Point(355, 722);
             this.buttonValidate.Name = "buttonValidate";
             this.buttonValidate.Size = new System.Drawing.Size(75, 23);
             this.buttonValidate.TabIndex = 3;
@@ -212,7 +199,7 @@ namespace starcraft2_matchmaker
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(272, 725);
+            this.buttonCancel.Location = new System.Drawing.Point(278, 722);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 3;
@@ -223,7 +210,7 @@ namespace starcraft2_matchmaker
             // comboBoxWinningTeam
             // 
             this.comboBoxWinningTeam.FormattingEnabled = true;
-            this.comboBoxWinningTeam.Location = new System.Drawing.Point(12, 698);
+            this.comboBoxWinningTeam.Location = new System.Drawing.Point(18, 695);
             this.comboBoxWinningTeam.Name = "comboBoxWinningTeam";
             this.comboBoxWinningTeam.Size = new System.Drawing.Size(412, 21);
             this.comboBoxWinningTeam.TabIndex = 6;
@@ -235,7 +222,7 @@ namespace starcraft2_matchmaker
             this.labelMatchmaking.AutoSize = true;
             this.labelMatchmaking.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMatchmaking.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.labelMatchmaking.Location = new System.Drawing.Point(12, 459);
+            this.labelMatchmaking.Location = new System.Drawing.Point(15, 427);
             this.labelMatchmaking.Name = "labelMatchmaking";
             this.labelMatchmaking.Size = new System.Drawing.Size(59, 13);
             this.labelMatchmaking.TabIndex = 7;
@@ -258,7 +245,7 @@ namespace starcraft2_matchmaker
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label2.Location = new System.Drawing.Point(9, 672);
+            this.label2.Location = new System.Drawing.Point(15, 669);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 13);
             this.label2.TabIndex = 10;
@@ -410,15 +397,15 @@ namespace starcraft2_matchmaker
             // 
             // richTextBoxTeams
             // 
-            this.richTextBoxTeams.Location = new System.Drawing.Point(15, 484);
+            this.richTextBoxTeams.Location = new System.Drawing.Point(18, 452);
             this.richTextBoxTeams.Name = "richTextBoxTeams";
-            this.richTextBoxTeams.Size = new System.Drawing.Size(407, 176);
+            this.richTextBoxTeams.Size = new System.Drawing.Size(407, 201);
             this.richTextBoxTeams.TabIndex = 11;
             this.richTextBoxTeams.Text = "";
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(373, 284);
+            this.buttonReset.Location = new System.Drawing.Point(374, 284);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(51, 23);
             this.buttonReset.TabIndex = 12;
@@ -441,7 +428,6 @@ namespace starcraft2_matchmaker
             this.Controls.Add(this.comboBoxWinningTeam);
             this.Controls.Add(this.comboBoxMatchType);
             this.Controls.Add(this.checkedListBoxHumanPlayers);
-            this.Controls.Add(this.checkBoxEnableIA);
             this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.buttonModify);
             this.Controls.Add(this.buttonCreateTeams);
@@ -475,7 +461,6 @@ namespace starcraft2_matchmaker
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonModify;
         private System.Windows.Forms.Button buttonRemove;
-        private System.Windows.Forms.CheckBox checkBoxEnableIA;
         private System.Windows.Forms.CheckedListBox checkedListBoxHumanPlayers;
         private System.Windows.Forms.ComboBox comboBoxMatchType;
         private System.Windows.Forms.Button buttonCreateTeams;
