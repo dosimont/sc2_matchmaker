@@ -169,7 +169,7 @@ namespace sc2_matchmaker
                     teams.Clear();
                     for (int j = 0; j < teamNumber; j++)
                     {
-                        tempTeams[j].EloAdv = scores.Sum()-tempTeams[j].EloTeam/(teamNumber-1);
+                        tempTeams[j].EloAdv = (scores.Sum()-tempTeams[j].EloTeam)/(teamNumber-1);
                         teams.Add(tempTeams[j].getCopy());
                     }
                 }
