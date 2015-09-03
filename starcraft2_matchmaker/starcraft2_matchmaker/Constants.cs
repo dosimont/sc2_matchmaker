@@ -22,21 +22,26 @@ namespace starcraft2_matchmaker
         public const string V4 = "4v4";
         public const string V22 = "2v2v2";
 
-        public const int TotalMaxPlayers_FFA = -1;
-        public const int TotalMaxPlayers_BAL = -1;
-        public const int TotalMaxPlayers_V1 = 2;
-        public const int TotalMaxPlayers_V2 = 4;
-        public const int TotalMaxPlayers_V3 = 6;
-        public const int TotalMaxPlayers_V4 = 8;
-        public const int TotalMaxPlayers_V22 = 8;
+        public const int TotalPlayers_FFA = -1;
+        public const int TotalPlayers_BAL = -1;
+        public const int TotalPlayers_V1 = 2;
+        public const int TotalPlayers_V2 = 4;
+        public const int TotalPlayers_V3 = 6;
+        public const int TotalPlayers_V4 = 8;
+        public const int TotalPlayers_V22 = 6;
 
-        public const int TeamMaxPlayers_FFA = 1;
-        public const int TeamMaxPlayers_BAL = -1;
-        public const int TeamMaxPlayers_V1 = 1;
-        public const int TeamMaxPlayers_V2 = 2;
-        public const int TeamMaxPlayers_V3 = 3;
-        public const int TeamMaxPlayers_V4 = 4;
-        public const int TeamMaxPlayers_V22 = 2;
+        public const int TeamPlayers_FFA = 1;
+        public const int TeamPlayers_BAL = -1;
+        public const int TeamPlayers_V2 = 2;
+        public const int TeamPlayers_V3 = 3;
+        public const int TeamPlayers_V4 = 4;
+        public const int TeamPlayers_V22 = 2;
+
+        public const int TeamNumber_V1 = 2;
+        public const int TeamNumber_V2 = 2;
+        public const int TeamNumber_V3 = 2;
+        public const int TeamNumber_V4 = 2;
+        public const int TeamNumber_V22 = 3;
 
         public const int FName = 0;
         public const int FBoolTerran = 1;

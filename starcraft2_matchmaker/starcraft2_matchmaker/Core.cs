@@ -137,13 +137,7 @@ namespace starcraft2_matchmaker
         public void computeMatchmaking()
         {
             Matchmaker matchMaker = new Matchmaker(this);
-            try {
-                matchMaker.checkMatch();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            matchMaker.checkMatch();
             CurrentTeams=matchMaker.computeTeams();
             CurrentScore = matchMaker.Score;
         }

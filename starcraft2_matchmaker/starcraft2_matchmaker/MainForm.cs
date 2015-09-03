@@ -36,9 +36,9 @@ namespace starcraft2_matchmaker
             //comboBoxMatchType.Items.Add(Constants.BAL);
             comboBoxMatchType.Items.Add(Constants.V1);
             comboBoxMatchType.Items.Add(Constants.V2);
-            //comboBoxMatchType.Items.Add(Constants.V22);
+            comboBoxMatchType.Items.Add(Constants.V22);
             comboBoxMatchType.Items.Add(Constants.V3);
-            //comboBoxMatchType.Items.Add(Constants.V4);
+            comboBoxMatchType.Items.Add(Constants.V4);
             comboBoxMatchType.SelectedIndex = 0;
             checkedListBoxHumanPlayers.Sorted = true;
             comboBoxWinningTeam.Enabled = false;
@@ -243,10 +243,10 @@ namespace starcraft2_matchmaker
         private void updateInformation(Player player)
         {
             nameContent.Text = player.Name;
-            terranContent.Text = "Win: " + player.Victory[Constants.Terran] + ", Loss: " + player.Defeat[Constants.Terran] + ", Score: " + player.Elo[Constants.Terran];
-            zergContent.Text = "Win: " + player.Victory[Constants.Zerg] + ", Loss: " + player.Defeat[Constants.Zerg] + ", Score: " + player.Elo[Constants.Zerg];
-            protossContent.Text = "Win: " + player.Victory[Constants.Protoss] + ", Loss: " + player.Defeat[Constants.Protoss] + ", Score: " + player.Elo[Constants.Protoss];
-            randomContent.Text = "Win: " + player.Victory[Constants.Random] + ", Loss: " + player.Defeat[Constants.Random] + ", Score: " + player.Elo[Constants.Random];
+            terranContent.Text = "Win: " + player.Victory[Constants.Terran] + ", Loss: " + player.Defeat[Constants.Terran] + ", Elo: " + player.Elo[Constants.Terran];
+            zergContent.Text = "Win: " + player.Victory[Constants.Zerg] + ", Loss: " + player.Defeat[Constants.Zerg] + ", Elo: " + player.Elo[Constants.Zerg];
+            protossContent.Text = "Win: " + player.Victory[Constants.Protoss] + ", Loss: " + player.Defeat[Constants.Protoss] + ", Elo: " + player.Elo[Constants.Protoss];
+            randomContent.Text = "Win: " + player.Victory[Constants.Random] + ", Loss: " + player.Defeat[Constants.Random] + ", Elo: " + player.Elo[Constants.Random];
             terranContent.Enabled = player.Races[Constants.Terran];
             labelTerran.Enabled = player.Races[Constants.Terran];
             zergContent.Enabled = player.Races[Constants.Zerg];
@@ -286,7 +286,7 @@ namespace starcraft2_matchmaker
             }catch(Exception ex)
             {
             MessageBox.Show("Error: "+ex.Message);
-             return;
+            return;
             }
         }
 

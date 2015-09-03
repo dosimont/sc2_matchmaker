@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Class2.cs" />
     <Compile Include="Csv.cs" />
     <Compile Include="Elo.cs" />
     <Compile Include="Matchmaker.cs" />
@@ -66,6 +67,7 @@
     </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="PlayerReader.cs" />
+    <Compile Include="PlayerSelecter.cs" />
     <Compile Include="PlayerWriter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
