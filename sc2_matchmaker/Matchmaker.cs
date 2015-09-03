@@ -124,85 +124,6 @@ namespace sc2_matchmaker
             return teams;
         }
 
-        private List<Team> computeFFA()
-        {
-            Random rnd = new Random();
-            List<Team> teams = new List<Team>();
-            Dictionary<String,Team> tempTeams = new Dictionary<String,Team>();
-            score = 0;
-            int maxElo=Constants.StartElo;
-            int secondElo = Constants.StartElo;
-            Team bestTeam=null;
-            Team secondTeam=null;
-            int[] scores = new int[core.CheckedHumanPlayers.Count];
-            foreach(var player in core.CheckedHumanPlayers.Values)
-            {
-                Team tempTeam = new Team();
-                tempTeam.addMember(player);
-                tempTeams.Add(player.Name, tempTeam);
-            }
-            for (int i = 0; i<Constants.Iterations; i++)
-            {
-                int j = 0;
-                foreach (var player in core.CheckedHumanPlayers.Values)
-                {
-                    tempTeams[player.Name].setRace(player,player.selectRaceRandomly(rnd));
-                    scores[j] = tempTeams[player.Name].computeEloTeam();
-                    if (scores[j]>= maxElo)
-                    {
-                        secondTeam = bestTeam;
-                        bestTeam = tempTeams[player.Name];
-                        secondElo = maxElo;
-                        maxElo = scores[j];
-                    }
-                    else if (scores[j] >= secondElo)
-                    {
-                        secondTeam = tempTeams[player.Name];
-                        secondElo = scores[j];
-                    }
-                    j++;
-                }
-                if (i == 0)
-                {
-                    score = Statistics.StdDev(scores);
-                    teams.Clear();
-                    foreach (var player in core.CheckedHumanPlayers.Values)
-                    {
-                        if (tempTeams[player.Name].Equals(bestTeam))
-                        {
-                            tempTeams[player.Name].EloAdv = secondElo;
-                        }
-                        else
-                        {
-                            tempTeams[player.Name].EloAdv = maxElo;
-                        }
-                        teams.Add(tempTeams[player.Name].getCopy());
-                    }
-                }
-                else
-                {
-                    double tempScore = Statistics.StdDev(scores);
-                    if (tempScore < score)
-                    {
-                        score = tempScore;
-                        teams.Clear();
-                        foreach (var player in core.CheckedHumanPlayers.Values)
-                        {
-                            if (tempTeams[player.Name].Equals(bestTeam))
-                            {
-                                tempTeams[player.Name].EloAdv = secondElo;
-                            }
-                            else
-                            {
-                                tempTeams[player.Name].EloAdv = maxElo;
-                            }
-                             teams.Add(tempTeams[player.Name].getCopy());
-                        }
-                    }
-                }
-            }
-            return teams;
-        }
 
         private List<Team> computeMatch(int teamMemberNumber, int teamNumber)
         {
@@ -214,10 +135,7 @@ namespace sc2_matchmaker
             int[] scores = new int[teamNumber];
             for (int i = 0; i < Constants.Iterations; i++)
             {
-                int maxEloTemp = 0;
-                int secondEloTemp = 0;
-                Team bestTeamTemp = null;
-                Team secondTeamTemp = null;
+                int averageElo;
                 tempTeams.Clear();
                 playerSelecter.reset();
                 for (int j = 0; j < teamNumber; j++)
@@ -244,19 +162,8 @@ namespace sc2_matchmaker
                 for (int j = 0; j < teamNumber; j++)
                 {
                     scores[j] = tempTeams[j].computeEloTeam();
-                    if (scores[j] >= maxEloTemp)
-                    {
-                        secondTeamTemp = bestTeamTemp;
-                        bestTeamTemp = tempTeams[j];
-                        secondEloTemp = maxEloTemp;
-                        maxEloTemp = scores[j];
-                    }
-                    else if (scores[j] >= secondEloTemp)
-                    {
-                        secondTeamTemp = tempTeams[j];
-                        secondEloTemp = scores[j];
-                    }
                 }
+                averageElo = (int) Statistics.Mean(scores);
                 double tempScore = Statistics.StdDev(scores);
                 if (tempScore < score||(i==0))
                 {
@@ -264,15 +171,8 @@ namespace sc2_matchmaker
                     teams.Clear();
                     for (int j = 0; j < teamNumber; j++)
                     {
-                        if (tempTeams[j].Equals(bestTeamTemp))
-                        {
-                            tempTeams[j].EloAdv = secondEloTemp;
-                        }
-                        else
-                        {
-                            tempTeams[j].EloAdv = maxEloTemp;
-                        }
-                        teams.Add(tempTeams[j].getCopy());
+                    tempTeams[j].EloAdv = averageElo;
+                    teams.Add(tempTeams[j].getCopy());
                     }
                 }
             }
