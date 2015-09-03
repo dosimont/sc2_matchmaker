@@ -7,8 +7,8 @@
     <ProjectGuid>{84F04642-53C8-4CDC-A3AA-89E443306D7B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>starcraft2_matchmaker</RootNamespace>
-    <AssemblyName>starcraft2_matchmaker</AssemblyName>
+    <RootNamespace>sc2_matchmaker</RootNamespace>
+    <AssemblyName>sc2_matchmaker</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -85,6 +85,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

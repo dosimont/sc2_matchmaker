@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace starcraft2_matchmaker
+namespace sc2_matchmaker
 {
     public class Player
     {

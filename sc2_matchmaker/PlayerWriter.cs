@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace starcraft2_matchmaker
+namespace sc2_matchmaker
 {
     public class PlayerWriter
     {

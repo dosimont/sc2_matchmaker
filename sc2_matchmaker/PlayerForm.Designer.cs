@@ -1,4 +1,4 @@
-﻿namespace starcraft2_matchmaker
+﻿namespace sc2_matchmaker
 {
     partial class PlayerForm
     {

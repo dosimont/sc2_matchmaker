@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 
-namespace starcraft2_matchmaker
+namespace sc2_matchmaker
 {
 /// <summary>
 /// Class to store one CSV row

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace starcraft2_matchmaker
+namespace sc2_matchmaker
 {
     public class Team
     {

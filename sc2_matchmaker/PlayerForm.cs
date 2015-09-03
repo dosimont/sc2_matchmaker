@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace starcraft2_matchmaker
+namespace sc2_matchmaker
 {
     public partial class PlayerForm : Form
     {
