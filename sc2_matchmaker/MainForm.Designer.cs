@@ -189,9 +189,9 @@ namespace sc2_matchmaker
             // 
             // buttonValidate
             // 
-            this.buttonValidate.Location = new System.Drawing.Point(355, 722);
+            this.buttonValidate.Location = new System.Drawing.Point(368, 722);
             this.buttonValidate.Name = "buttonValidate";
-            this.buttonValidate.Size = new System.Drawing.Size(75, 23);
+            this.buttonValidate.Size = new System.Drawing.Size(59, 23);
             this.buttonValidate.TabIndex = 3;
             this.buttonValidate.Text = "Validate";
             this.buttonValidate.UseVisualStyleBackColor = true;
@@ -199,9 +199,9 @@ namespace sc2_matchmaker
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(278, 722);
+            this.buttonCancel.Location = new System.Drawing.Point(303, 722);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(59, 23);
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
