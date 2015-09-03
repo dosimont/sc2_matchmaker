@@ -37,7 +37,9 @@ namespace starcraft2_matchmaker
             comboBoxMatchType.Items.Add(Constants.V1);
             comboBoxMatchType.Items.Add(Constants.V2);
             comboBoxMatchType.Items.Add(Constants.V22);
+            comboBoxMatchType.Items.Add(Constants.V222);
             comboBoxMatchType.Items.Add(Constants.V3);
+            comboBoxMatchType.Items.Add(Constants.V33);
             comboBoxMatchType.Items.Add(Constants.V4);
             comboBoxMatchType.SelectedIndex = 0;
             checkedListBoxHumanPlayers.Sorted = true;

@@ -52,9 +52,17 @@ namespace starcraft2_matchmaker
             {
                 countPlayers = Constants.TotalPlayers_V22;
             }
+            if (core.MatchType.Equals(Constants.V222))
+            {
+                countPlayers = Constants.TotalPlayers_V222;
+            }
             if (core.MatchType.Equals(Constants.V3))
             {
                 countPlayers = Constants.TotalPlayers_V3;
+            }
+            if (core.MatchType.Equals(Constants.V33))
+            {
+                countPlayers = Constants.TotalPlayers_V33;
             }
             if (core.MatchType.Equals(Constants.V4))
             {
@@ -81,9 +89,17 @@ namespace starcraft2_matchmaker
             {
                 teams = computeMatch(Constants.TeamPlayers_V22, Constants.TeamNumber_V22);
             }
+            else if (core.MatchType.Equals(Constants.V222))
+            {
+                teams = computeMatch(Constants.TeamPlayers_V222, Constants.TeamNumber_V222);
+            }
             else if (core.MatchType.Equals(Constants.V3))
             {
                 teams = computeMatch(Constants.TeamPlayers_V3, Constants.TeamNumber_V3);
+            }
+            else if (core.MatchType.Equals(Constants.V33))
+            {
+                teams = computeMatch(Constants.TeamPlayers_V33, Constants.TeamNumber_V33);
             }
             else if (core.MatchType.Equals(Constants.V4))
             {

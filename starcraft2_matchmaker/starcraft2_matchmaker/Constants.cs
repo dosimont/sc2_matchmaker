@@ -21,6 +21,8 @@ namespace starcraft2_matchmaker
         public const string V3 = "3v3";
         public const string V4 = "4v4";
         public const string V22 = "2v2v2";
+        public const string V222 = "2v2v2v2";
+        public const string V33 = "3v3v3";
 
         public const int TotalPlayers_FFA = -1;
         public const int TotalPlayers_BAL = -1;
@@ -29,6 +31,8 @@ namespace starcraft2_matchmaker
         public const int TotalPlayers_V3 = 6;
         public const int TotalPlayers_V4 = 8;
         public const int TotalPlayers_V22 = 6;
+        public const int TotalPlayers_V222 = 8;
+        public const int TotalPlayers_V33 = 9;
 
         public const int TeamPlayers_FFA = 1;
         public const int TeamPlayers_BAL = -1;
@@ -36,12 +40,16 @@ namespace starcraft2_matchmaker
         public const int TeamPlayers_V3 = 3;
         public const int TeamPlayers_V4 = 4;
         public const int TeamPlayers_V22 = 2;
+        public const int TeamPlayers_V222 = 2;
+        public const int TeamPlayers_V33 = 3;
 
         public const int TeamNumber_V1 = 2;
         public const int TeamNumber_V2 = 2;
         public const int TeamNumber_V3 = 2;
         public const int TeamNumber_V4 = 2;
         public const int TeamNumber_V22 = 3;
+        public const int TeamNumber_V222 = 4;
+        public const int TeamNumber_V33 = 2;
 
         public const int FName = 0;
         public const int FBoolTerran = 1;
