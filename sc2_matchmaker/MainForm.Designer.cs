@@ -210,7 +210,7 @@ namespace sc2_matchmaker
             // comboBoxWinningTeam
             // 
             this.comboBoxWinningTeam.FormattingEnabled = true;
-            this.comboBoxWinningTeam.Location = new System.Drawing.Point(18, 695);
+            this.comboBoxWinningTeam.Location = new System.Drawing.Point(15, 695);
             this.comboBoxWinningTeam.Name = "comboBoxWinningTeam";
             this.comboBoxWinningTeam.Size = new System.Drawing.Size(412, 21);
             this.comboBoxWinningTeam.TabIndex = 6;
@@ -222,7 +222,7 @@ namespace sc2_matchmaker
             this.labelMatchmaking.AutoSize = true;
             this.labelMatchmaking.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMatchmaking.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.labelMatchmaking.Location = new System.Drawing.Point(15, 427);
+            this.labelMatchmaking.Location = new System.Drawing.Point(12, 426);
             this.labelMatchmaking.Name = "labelMatchmaking";
             this.labelMatchmaking.Size = new System.Drawing.Size(59, 13);
             this.labelMatchmaking.TabIndex = 7;
@@ -245,7 +245,7 @@ namespace sc2_matchmaker
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label2.Location = new System.Drawing.Point(15, 669);
+            this.label2.Location = new System.Drawing.Point(12, 667);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 13);
             this.label2.TabIndex = 10;
