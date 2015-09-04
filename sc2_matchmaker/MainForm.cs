@@ -356,6 +356,7 @@ namespace sc2_matchmaker
 
         private void selectTeams()
         {
+            comboBoxWinningTeam.Items.Clear();
             comboBoxWinningTeam.Enabled = true;
             for (int i = 1; i <= core.CurrentTeams.Count;i++)
             {
