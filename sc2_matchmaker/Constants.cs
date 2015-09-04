@@ -114,7 +114,7 @@ namespace sc2_matchmaker
         public const string Bronze = "Bronze";
         public const string Silver = "Silver";
         public const string Gold = "Gold";
-        public const string Platine = "Platine";
+        public const string Platine = "Platinum";
         public const string Diamond = "Diamond";
         public const string Master = "Master";
         public const string GrandMaster = "GrandMaster";
