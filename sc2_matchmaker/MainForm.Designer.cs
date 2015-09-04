@@ -451,9 +451,9 @@ namespace sc2_matchmaker
             this.labelCreateTeams.ForeColor = System.Drawing.SystemColors.Desktop;
             this.labelCreateTeams.Location = new System.Drawing.Point(10, 438);
             this.labelCreateTeams.Name = "labelCreateTeams";
-            this.labelCreateTeams.Size = new System.Drawing.Size(96, 13);
+            this.labelCreateTeams.Size = new System.Drawing.Size(100, 13);
             this.labelCreateTeams.TabIndex = 9;
-            this.labelCreateTeams.Text = "3) Create teams";
+            this.labelCreateTeams.Text = "3) Create Teams";
             this.labelCreateTeams.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // buttonCheckAll
