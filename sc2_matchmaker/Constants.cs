@@ -100,6 +100,47 @@ namespace sc2_matchmaker
         public const int WDefeat = 0;
 
         public const int MaxD = 400;
-        public const int StartElo = 800;
+
+        public const int EloUnranked = 1000;
+        public const int EloBronze = 1200;
+        public const int EloSilver = 1400;
+        public const int EloGold = 1600;
+        public const int EloPlatine = 1800;
+        public const int EloDiamond = 2000;
+        public const int EloMaster = 2200;
+        public const int EloGrandMaster = 2400;
+
+        public const string Unranked = "Unranked";
+        public const string Bronze = "Bronze";
+        public const string Silver = "Silver";
+        public const string Gold = "Gold";
+        public const string Platine = "Platine";
+        public const string Diamond = "Diamond";
+        public const string Master = "Master";
+        public const string GrandMaster = "GrandMaster";
+
+        public static string raceToString(int race)
+        {
+            string raceStr;
+            switch (race)
+            {
+                case Constants.Terran:
+                    raceStr = "Terran";
+                    break;
+                case Constants.Zerg:
+                    raceStr = "Zerg";
+                    break;
+                case Constants.Protoss:
+                    raceStr = "Protoss";
+                    break;
+                case Constants.Random:
+                    raceStr = "Random";
+                    break;
+                default:
+                    raceStr = "Unknown";
+                    break;
+            }
+            return raceStr;
+        }
     }
 }

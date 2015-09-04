@@ -61,8 +61,7 @@ namespace sc2_matchmaker
             checkedListBoxHumanPlayers.Sorted = true;
             comboBoxWinningTeam.Enabled = false;
             buttonValidate.Enabled = false;
-            buttonCancel.Enabled = false;
-            buttonCreateTeams.Enabled = true;
+            buttonCreateTeamsAuto.Enabled = true;
 
         }
 
@@ -84,7 +83,6 @@ namespace sc2_matchmaker
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             buttonValidate.Enabled = true;
-            buttonCancel.Enabled = true;
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -130,6 +128,7 @@ namespace sc2_matchmaker
         {
             core.addPlayer(name, terran, zerg, protoss, random);
             checkedListBoxHumanPlayers.Items.Add(core.HumanPlayers[name], false);
+            updateDetailsDisplay();
         }
 
         public void modifyPlayer(Player player, string newname, bool terran, bool zerg, bool protoss, bool random)
@@ -138,6 +137,14 @@ namespace sc2_matchmaker
             checkedListBoxHumanPlayers.Items.Remove(player);
             core.modifyPlayer(player, newname, terran, zerg, protoss, random);
             checkedListBoxHumanPlayers.Items.Add(core.HumanPlayers[newname], checkedItem);
+            updateDetailsDisplay();
+        }
+
+        internal void addPlayer(string name, bool terran, bool zerg, bool protoss, bool random, string terranLvl, string zergLvl, string protossLvl, string randomLvl)
+        {
+            core.addPlayer(name, terran, zerg, protoss, random, terranLvl, zergLvl, protossLvl, randomLvl);
+            checkedListBoxHumanPlayers.Items.Add(core.HumanPlayers[name], false);
+            updateDetailsDisplay();
         }
 
         public void actualizeCheckedListPlayer()
@@ -177,7 +184,7 @@ namespace sc2_matchmaker
                 checkedListBoxHumanPlayers.Items.Remove(item);
                 core.removePlayer(item.Name);
             }
-
+            updateDetailsDisplay();
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -260,11 +267,14 @@ namespace sc2_matchmaker
 
         private void updateInformation(Player player)
         {
+            core.computeRanks();
             nameContent.Text = player.Name;
+            rankedContent.Text = core.getRank(player).ToString();
             terranContent.Text = "Win: " + player.Victory[Constants.Terran] + ", Loss: " + player.Defeat[Constants.Terran] + ", Elo: " + player.Elo[Constants.Terran];
             zergContent.Text = "Win: " + player.Victory[Constants.Zerg] + ", Loss: " + player.Defeat[Constants.Zerg] + ", Elo: " + player.Elo[Constants.Zerg];
             protossContent.Text = "Win: " + player.Victory[Constants.Protoss] + ", Loss: " + player.Defeat[Constants.Protoss] + ", Elo: " + player.Elo[Constants.Protoss];
             randomContent.Text = "Win: " + player.Victory[Constants.Random] + ", Loss: " + player.Defeat[Constants.Random] + ", Elo: " + player.Elo[Constants.Random];
+            overallContent.Text = "Win: " + player.getOverallVictory() + ", Loss: " + player.getOverallDefeat() + ", Elo: " + player.getOverallElo();
             terranContent.Enabled = player.Races[Constants.Terran];
             labelTerran.Enabled = player.Races[Constants.Terran];
             zergContent.Enabled = player.Races[Constants.Zerg];
@@ -277,6 +287,7 @@ namespace sc2_matchmaker
             zergContent.ForeColor = labelZerg.ForeColor;
             protossContent.ForeColor = labelProtoss.ForeColor;
             randomContent.ForeColor = labelRandom.ForeColor;
+
         }
 
         private void labelOverall_Click(object sender, EventArgs e)
@@ -289,7 +300,26 @@ namespace sc2_matchmaker
 
         }
 
-        private void buttonCreateTeams_Click(object sender, EventArgs e)
+        private void buttonManual_Click(object sender, EventArgs e)
+        {
+            updateCheckedHumanPlayers();
+
+            core.MatchType = comboBoxMatchType.Text;
+            try
+            {
+                core.computeMatchmaking();
+                printTeams();
+                selectTeams();
+                comboBoxWinningTeam.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return;
+            }
+        }
+
+        private void buttonAuto_Click(object sender, EventArgs e)
         {
             updateCheckedHumanPlayers();
 
@@ -298,8 +328,6 @@ namespace sc2_matchmaker
                 core.computeMatchmaking();
                 printTeams();
                 selectTeams();
-                buttonCreateTeams.Enabled = false;
-                buttonCancel.Enabled = true;
                 comboBoxWinningTeam.Enabled = true;
             }catch(Exception ex)
             {
@@ -348,8 +376,7 @@ namespace sc2_matchmaker
             comboBoxWinningTeam.Items.Clear();
             comboBoxWinningTeam.Text = "Select the Winning Team";
             buttonValidate.Enabled = false;
-            buttonCancel.Enabled = false;
-            buttonCreateTeams.Enabled = true;
+            buttonCreateTeamsAuto.Enabled = true;
             clearTeams();
             updateDetailsDisplay();
         }
@@ -360,12 +387,11 @@ namespace sc2_matchmaker
             comboBoxWinningTeam.Items.Clear();
             comboBoxWinningTeam.Text = "Select the Winning Team";
             buttonValidate.Enabled = false;
-            buttonCancel.Enabled = false;
-            buttonCreateTeams.Enabled = true;
+            buttonCreateTeamsAuto.Enabled = true;
             clearTeams();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonReset_Click(object sender, EventArgs e)
         {
             List<Player> selectedHumanPlayers = new List<Player>();
             foreach (var item in checkedListBoxHumanPlayers.SelectedItems)
@@ -378,6 +404,52 @@ namespace sc2_matchmaker
                 selectedHumanPlayers[0].reset();
             }
             updateDetailsDisplay();
+        }
+
+        private void buttonUncheckAll_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < checkedListBoxHumanPlayers.Items.Count; i++)
+            {
+                checkedListBoxHumanPlayers.SetItemChecked(i, false);
+            }
+        }
+
+        private void labelResult_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCheckAll_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < checkedListBoxHumanPlayers.Items.Count; i++)
+            {
+                checkedListBoxHumanPlayers.SetItemChecked(i, true);
+            }  
+        }
+
+        private void buttonCreateTeamsManual_Click(object sender, EventArgs e)
+        {
+            updateCheckedHumanPlayers();
+            core.MatchType = comboBoxMatchType.Text;
+            try
+            {
+                core.checkMatch();
+                TeamForm teamForm = new TeamForm(this);
+                teamForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return;
+           }
+        }
+
+        public void manualMatch(List<Team> teams)
+        {
+            core.computeMatchmaking(teams);
+            printTeams();
+            selectTeams();
+            comboBoxWinningTeam.Enabled = true;
         }
     }
 }

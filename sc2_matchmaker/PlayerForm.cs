@@ -37,6 +37,42 @@ namespace sc2_matchmaker
             this.mainForm=mainForm;
             InitializeComponent();
             Text = "Add Player";
+            comboBoxTerran.Items.Add(Constants.Unranked);
+            comboBoxTerran.Items.Add(Constants.Bronze);
+            comboBoxTerran.Items.Add(Constants.Silver);
+            comboBoxTerran.Items.Add(Constants.Gold);
+            comboBoxTerran.Items.Add(Constants.Platine);
+            comboBoxTerran.Items.Add(Constants.Diamond);
+            comboBoxTerran.Items.Add(Constants.Master);
+            comboBoxTerran.Items.Add(Constants.GrandMaster);
+            comboBoxTerran.SelectedIndex = 0;
+            comboBoxZerg.Items.Add(Constants.Unranked);
+            comboBoxZerg.Items.Add(Constants.Bronze);
+            comboBoxZerg.Items.Add(Constants.Silver);
+            comboBoxZerg.Items.Add(Constants.Gold);
+            comboBoxZerg.Items.Add(Constants.Platine);
+            comboBoxZerg.Items.Add(Constants.Diamond);
+            comboBoxZerg.Items.Add(Constants.Master);
+            comboBoxZerg.Items.Add(Constants.GrandMaster);
+            comboBoxZerg.SelectedIndex = 0;
+            comboBoxProtoss.Items.Add(Constants.Unranked);
+            comboBoxProtoss.Items.Add(Constants.Bronze);
+            comboBoxProtoss.Items.Add(Constants.Silver);
+            comboBoxProtoss.Items.Add(Constants.Gold);
+            comboBoxProtoss.Items.Add(Constants.Platine);
+            comboBoxProtoss.Items.Add(Constants.Diamond);
+            comboBoxProtoss.Items.Add(Constants.Master);
+            comboBoxProtoss.Items.Add(Constants.GrandMaster);
+            comboBoxProtoss.SelectedIndex = 0;
+            comboBoxRandom.Items.Add(Constants.Unranked);
+            comboBoxRandom.Items.Add(Constants.Bronze);
+            comboBoxRandom.Items.Add(Constants.Silver);
+            comboBoxRandom.Items.Add(Constants.Gold);
+            comboBoxRandom.Items.Add(Constants.Platine);
+            comboBoxRandom.Items.Add(Constants.Diamond);
+            comboBoxRandom.Items.Add(Constants.Master);
+            comboBoxRandom.Items.Add(Constants.GrandMaster);
+            comboBoxRandom.SelectedIndex = 0;
         }
 
         public PlayerForm(MainForm mainForm, Player player)
@@ -50,6 +86,10 @@ namespace sc2_matchmaker
             checkBoxZerg.Checked = player.Races[Constants.Zerg];
             checkBoxProtoss.Checked = player.Races[Constants.Protoss];
             checkBoxRandom.Checked = player.Races[Constants.Random];
+            comboBoxTerran.Enabled = false;
+            comboBoxZerg.Enabled = false;
+            comboBoxProtoss.Enabled = false;
+            comboBoxRandom.Enabled = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -57,11 +97,11 @@ namespace sc2_matchmaker
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonOk_Click(object sender, EventArgs e)
         {
             if (check()) {
                 if (newPlayer)
-                    mainForm.addPlayer(textBoxName.Text, checkBoxTerran.Checked, checkBoxZerg.Checked, checkBoxProtoss.Checked, checkBoxRandom.Checked);
+                    mainForm.addPlayer(textBoxName.Text, checkBoxTerran.Checked, checkBoxZerg.Checked, checkBoxProtoss.Checked, checkBoxRandom.Checked, (string) comboBoxTerran.SelectedItem, (string) comboBoxZerg.SelectedItem, (string) comboBoxProtoss.SelectedItem, (string) comboBoxRandom.SelectedItem);
                 else
                     mainForm.modifyPlayer(player, textBoxName.Text, checkBoxTerran.Checked, checkBoxZerg.Checked, checkBoxProtoss.Checked, checkBoxRandom.Checked);
                 Close();

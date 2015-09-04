@@ -45,87 +45,30 @@ namespace sc2_matchmaker
             }
         }
 
-        public void checkMatch()
-        {
-            if (core.CheckedHumanPlayers.Count < 2)
-            {
-                throw new Exception("Not enough players");
-            }
-            int countPlayers=0;
-            if (core.MatchType.Equals(Constants.FFA))
-            {
-                return;
-            }
-            if (core.MatchType.Equals(Constants.V1))
-            {
-                countPlayers = Constants.TotalPlayers_V1;
-            }
-            if (core.MatchType.Equals(Constants.V2))
-            {
-                countPlayers = Constants.TotalPlayers_V2;
-            }
-            if (core.MatchType.Equals(Constants.V22))
-            {
-                countPlayers = Constants.TotalPlayers_V22;
-            }
-            if (core.MatchType.Equals(Constants.V222))
-            {
-                countPlayers = Constants.TotalPlayers_V222;
-            }
-            if (core.MatchType.Equals(Constants.V3))
-            {
-                countPlayers = Constants.TotalPlayers_V3;
-            }
-            if (core.MatchType.Equals(Constants.V33))
-            {
-                countPlayers = Constants.TotalPlayers_V33;
-            }
-            if (core.MatchType.Equals(Constants.V4))
-            {
-                countPlayers = Constants.TotalPlayers_V4;
-            }
-            if (core.CheckedHumanPlayers.Count != countPlayers)
-            {
-                throw new Exception("You must select exactly " + countPlayers + " players");
-            }
-        }
-
-        public List<Team> computeTeams()
+        public List<Team> computeMatch()
         {
             List<Team> teams = new List<Team>();
-            if (core.MatchType.Equals(Constants.FFA)||core.MatchType.Equals(Constants.V1))
-            {
-                teams = computeMatch(Constants.TeamPlayers_FFA, core.CheckedHumanPlayers.Count);
-            }
-            else if (core.MatchType.Equals(Constants.V2))
-            {
-                teams = computeMatch(Constants.TeamPlayers_V2, Constants.TeamNumber_V2);
-            }
-            else if (core.MatchType.Equals(Constants.V22))
-            {
-                teams = computeMatch(Constants.TeamPlayers_V22, Constants.TeamNumber_V22);
-            }
-            else if (core.MatchType.Equals(Constants.V222))
-            {
-                teams = computeMatch(Constants.TeamPlayers_V222, Constants.TeamNumber_V222);
-            }
-            else if (core.MatchType.Equals(Constants.V3))
-            {
-                teams = computeMatch(Constants.TeamPlayers_V3, Constants.TeamNumber_V3);
-            }
-            else if (core.MatchType.Equals(Constants.V33))
-            {
-                teams = computeMatch(Constants.TeamPlayers_V33, Constants.TeamNumber_V33);
-            }
-            else if (core.MatchType.Equals(Constants.V4))
-            {
-                teams = computeMatch(Constants.TeamPlayers_V4, Constants.TeamNumber_V4);
-            }
+            teams = computeTeams(core.getExpectedTeamPlayerNumber(), core.getExpectedTeamNumber());
             return teams;
         }
 
+        public void computeMatch(List<Team> teams)
+        {
+            score = 0;
+            int[] scores = new int[teams.Count];
+            for (int i = 0; i < teams.Count; i++)
+            {
+                scores[i] = teams[i].computeEloTeam();
+            }
+            score = Statistics.StdDev(scores);
+            for (int j = 0; j <  teams.Count; j++)
+            {
+                teams[j].EloAdv = (scores.Sum() - teams[j].EloTeam) / (teams.Count - 1);
+            }
+        }
 
-        private List<Team> computeMatch(int teamMemberNumber, int teamNumber)
+
+        private List<Team> computeTeams(int teamMemberNumber, int teamNumber)
         {
             Random rnd = new Random();
             List<Team> teams = new List<Team>();

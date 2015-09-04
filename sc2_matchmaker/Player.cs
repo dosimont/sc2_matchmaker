@@ -18,7 +18,7 @@ using System;
 
 namespace sc2_matchmaker
 {
-    public class Player
+    public class Player : IComparable
     {
         private string name;
         private int[] elo = new int[Constants.RaceNumber];
@@ -34,7 +34,7 @@ namespace sc2_matchmaker
             {
                 victory[i] = 0;
                 defeat[i] = 0;
-                elo[i] = Constants.StartElo;
+                elo[i] = Constants.EloUnranked;
             }
             this.races[Constants.Terran] = terran;
             this.races[Constants.Zerg] = zerg;
@@ -138,8 +138,58 @@ namespace sc2_matchmaker
             {
                 victory[i] = 0;
                 defeat[i] = 0;
-                elo[i] = Constants.StartElo;
+                elo[i] = Constants.EloUnranked;
             }
+        }
+
+        public int getOverallVictory()
+        {
+            int temp = 0;
+            for (int i = 0; i < Constants.RaceNumber; i++)
+            {
+                if (races[i])
+                {
+                    temp += victory[i];
+                }
+            }
+            return temp;
+        }
+
+        public int getOverallDefeat()
+        {
+            int temp = 0;
+            for (int i = 0; i < Constants.RaceNumber; i++)
+            {
+                if (races[i])
+                {
+                    temp += defeat[i];
+                }
+            }
+            return temp;
+        }
+
+        public int getOverallElo()
+        {
+            int temp = 0;
+            int count = 0;
+            for (int i = 0; i < Constants.RaceNumber; i++)
+            {
+                if (races[i])
+                {
+                    temp += elo[i];
+                    count++;
+                }
+            }
+            return temp/count;
+        }
+
+        public int CompareTo(object obj)
+        {
+            if (this.getOverallElo() < ((Player)(obj)).getOverallElo())
+                return 1;
+            if (this.getOverallElo() > ((Player)(obj)).getOverallElo())
+                return -1;
+            return 0;
         }
     }
 }

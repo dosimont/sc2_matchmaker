@@ -37,13 +37,18 @@
             this.labelSelectRaces = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.comboBoxTerran = new System.Windows.Forms.ComboBox();
+            this.comboBoxZerg = new System.Windows.Forms.ComboBox();
+            this.comboBoxProtoss = new System.Windows.Forms.ComboBox();
+            this.comboBoxRandom = new System.Windows.Forms.ComboBox();
+            this.labelEstimatedLevel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxName
             // 
             this.textBoxName.Location = new System.Drawing.Point(53, 12);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(67, 20);
+            this.textBoxName.Size = new System.Drawing.Size(107, 20);
             this.textBoxName.TabIndex = 0;
             // 
             // labelName
@@ -107,17 +112,17 @@
             // 
             // buttonOK
             // 
-            this.buttonOK.Location = new System.Drawing.Point(197, 178);
+            this.buttonOK.Location = new System.Drawing.Point(230, 178);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
             this.buttonOK.TabIndex = 3;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
-            this.buttonOK.Click += new System.EventHandler(this.button1_Click);
+            this.buttonOK.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(116, 178);
+            this.buttonCancel.Location = new System.Drawing.Point(149, 178);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 3;
@@ -125,11 +130,57 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
+            // comboBoxTerran
+            // 
+            this.comboBoxTerran.FormattingEnabled = true;
+            this.comboBoxTerran.Location = new System.Drawing.Point(207, 76);
+            this.comboBoxTerran.Name = "comboBoxTerran";
+            this.comboBoxTerran.Size = new System.Drawing.Size(98, 21);
+            this.comboBoxTerran.TabIndex = 4;
+            // 
+            // comboBoxZerg
+            // 
+            this.comboBoxZerg.FormattingEnabled = true;
+            this.comboBoxZerg.Location = new System.Drawing.Point(207, 99);
+            this.comboBoxZerg.Name = "comboBoxZerg";
+            this.comboBoxZerg.Size = new System.Drawing.Size(98, 21);
+            this.comboBoxZerg.TabIndex = 5;
+            // 
+            // comboBoxProtoss
+            // 
+            this.comboBoxProtoss.FormattingEnabled = true;
+            this.comboBoxProtoss.Location = new System.Drawing.Point(207, 122);
+            this.comboBoxProtoss.Name = "comboBoxProtoss";
+            this.comboBoxProtoss.Size = new System.Drawing.Size(98, 21);
+            this.comboBoxProtoss.TabIndex = 6;
+            // 
+            // comboBoxRandom
+            // 
+            this.comboBoxRandom.FormattingEnabled = true;
+            this.comboBoxRandom.Location = new System.Drawing.Point(207, 145);
+            this.comboBoxRandom.Name = "comboBoxRandom";
+            this.comboBoxRandom.Size = new System.Drawing.Size(98, 21);
+            this.comboBoxRandom.TabIndex = 7;
+            // 
+            // labelEstimatedLevel
+            // 
+            this.labelEstimatedLevel.AutoSize = true;
+            this.labelEstimatedLevel.Location = new System.Drawing.Point(204, 54);
+            this.labelEstimatedLevel.Name = "labelEstimatedLevel";
+            this.labelEstimatedLevel.Size = new System.Drawing.Size(85, 13);
+            this.labelEstimatedLevel.TabIndex = 8;
+            this.labelEstimatedLevel.Text = "Estimated Level:";
+            // 
             // PlayerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 213);
+            this.ClientSize = new System.Drawing.Size(317, 213);
+            this.Controls.Add(this.labelEstimatedLevel);
+            this.Controls.Add(this.comboBoxRandom);
+            this.Controls.Add(this.comboBoxProtoss);
+            this.Controls.Add(this.comboBoxZerg);
+            this.Controls.Add(this.comboBoxTerran);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.checkBoxRandom);
@@ -157,5 +208,10 @@
         private System.Windows.Forms.Label labelSelectRaces;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.ComboBox comboBoxTerran;
+        private System.Windows.Forms.ComboBox comboBoxZerg;
+        private System.Windows.Forms.ComboBox comboBoxProtoss;
+        private System.Windows.Forms.ComboBox comboBoxRandom;
+        private System.Windows.Forms.Label labelEstimatedLevel;
     }
 }

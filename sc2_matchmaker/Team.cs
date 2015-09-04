@@ -66,6 +66,12 @@ namespace sc2_matchmaker
             setRace(player, race);
         }
 
+        public void RemoveMember(Player player)
+        {
+            members.Remove(player.Name);
+            selectedRace.Remove(player.Name);
+        }
+
         public void setRace(Player player, int race)
         {
             selectedRace[player.Name]= race;
@@ -108,30 +114,19 @@ namespace sc2_matchmaker
             string str="";
             foreach (var player in members.Values)
             {
-                str += player.Name + " (";
-                String race = "";
-                switch (selectedRace[player.Name])
-                {
-                    case Constants.Terran:
-                        race = "Terran";
-                        break;
-                    case Constants.Zerg:
-                        race = "Zerg";
-                        break;
-                    case Constants.Protoss:
-                        race = "Protoss";
-                        break;
-                    case Constants.Random:
-                        race = "Random";
-                        break;
-                    default:
-                        race = "Unknown";
-                        break; 
-                }
-                   str+= race+") "+Environment.NewLine;
+                str += player.Name + " ("+Constants.raceToString(selectedRace[player.Name])+") "+Environment.NewLine;
             }
-            str+="Score:" +computeEloTeam();
+            str += "Score: " + computeEloTeam();
             return str;
+        }
+
+        public int Count
+        {
+            get
+            {
+                return members.Count;
+            }
+            
         }
     }
 }
