@@ -112,6 +112,19 @@ namespace sc2_matchmaker
             }
         }
 
+        public List<Player> Ranks
+        {
+            get
+            {
+                return ranks;
+            }
+
+            set
+            {
+                ranks = value;
+            }
+        }
+
         public Core()
         {
             HumanPlayers = new Dictionary<string, Player>();
@@ -312,13 +325,13 @@ namespace sc2_matchmaker
 
         public void computeRanks()
         {
-            ranks = humanPlayers.Values.ToList();
-            ranks.Sort();
+            Ranks = humanPlayers.Values.ToList();
+            Ranks.Sort();
         }
 
         public int getRank(Player player)
         {
-            return ranks.IndexOf(player)+1;
+            return Ranks.IndexOf(player)+1;
         }
 
         public void checkMatch()
@@ -430,6 +443,12 @@ namespace sc2_matchmaker
                 return Constants.TeamPlayers_V4;
             }
             return -1;
+        }
+
+        public void Export(string file)
+        {
+            MarkdownExporter mkExporter = new MarkdownExporter(file, this);
+            mkExporter.write();
         }
     }
 }

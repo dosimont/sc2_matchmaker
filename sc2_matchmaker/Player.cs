@@ -189,6 +189,10 @@ namespace sc2_matchmaker
                 return 1;
             if (this.getOverallElo() > ((Player)(obj)).getOverallElo())
                 return -1;
+            if (this.getOverallElo() == ((Player)(obj)).getOverallElo() && this.getOverallVictory() > ((Player)(obj)).getOverallVictory())
+                return -1;
+            if (this.getOverallElo() == ((Player)(obj)).getOverallElo() && this.getOverallVictory() < ((Player)(obj)).getOverallVictory())
+                return 1;
             return 0;
         }
     }

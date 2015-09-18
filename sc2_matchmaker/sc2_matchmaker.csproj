@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Csv.cs" />
     <Compile Include="Elo.cs" />
+    <Compile Include="MarkdownExporter.cs" />
     <Compile Include="PlayerWrapper.cs" />
     <Compile Include="TeamForm.cs">
       <SubType>Form</SubType>

@@ -113,6 +113,7 @@ namespace sc2_matchmaker
                         Core = new Core(currentFile);
                         core.openPlayers();
                         actualizeCheckedListPlayer();
+                        core.computeRanks();
                         saved();
                     }
                 }
@@ -477,6 +478,31 @@ namespace sc2_matchmaker
             printTeams();
             selectTeams();
             comboBoxWinningTeam.Enabled = true;
+        }
+
+        private void markdownToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "All files (*.*)|*.*|Markdown file (*.md)|*.md";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+            string exportFile = null;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((exportFile = saveFileDialog1.FileName) != null)
+                    {
+                        core.Export(exportFile);
+                    }
+               }
+                catch (Exception ex)
+               {
+                    MessageBox.Show("Error: Could not export file. Original error: " + ex.Message);
+               }
+            }
         }
     }
 }
