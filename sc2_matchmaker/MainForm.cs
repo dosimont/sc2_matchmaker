@@ -150,6 +150,7 @@ namespace sc2_matchmaker
             core.addPlayer(name, terran, zerg, protoss, random, terranLvl, zergLvl, protossLvl, randomLvl);
             checkedListBoxHumanPlayers.Items.Add(core.HumanPlayers[name], false);
             updateDetailsDisplay();
+            
         }
 
         public void actualizeCheckedListPlayer()
@@ -190,6 +191,7 @@ namespace sc2_matchmaker
                 core.removePlayer(item.Name);
             }
             updateDetailsDisplay();
+            unsaved();
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
