@@ -53,6 +53,8 @@ namespace sc2_matchmaker
             radioButtonRandom.Enabled = false;
             numericUpDownTeam.Minimum = 1;
             numericUpDownTeam.Maximum = mainForm.Core.getExpectedTeamNumber();
+            listBox1.Sorted = true;
+            listBox2.Sorted = true;
             checkTeams();
             checkLists();
         }
