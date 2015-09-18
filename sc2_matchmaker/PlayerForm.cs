@@ -104,6 +104,7 @@ namespace sc2_matchmaker
                     mainForm.addPlayer(textBoxName.Text, checkBoxTerran.Checked, checkBoxZerg.Checked, checkBoxProtoss.Checked, checkBoxRandom.Checked, (string) comboBoxTerran.SelectedItem, (string) comboBoxZerg.SelectedItem, (string) comboBoxProtoss.SelectedItem, (string) comboBoxRandom.SelectedItem);
                 else
                     mainForm.modifyPlayer(player, textBoxName.Text, checkBoxTerran.Checked, checkBoxZerg.Checked, checkBoxProtoss.Checked, checkBoxRandom.Checked);
+                mainForm.unsaved();
                 Close();
             }
         }

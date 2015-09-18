@@ -31,6 +31,9 @@ namespace sc2_matchmaker
     {
         private string currentFile = null;
         private Core core = new Core();
+        const string title = "SC 2 Matchmaker";
+        const string ast = " *";
+        bool modif = false;
 
         internal Core Core
         {
@@ -62,6 +65,7 @@ namespace sc2_matchmaker
             comboBoxWinningTeam.Enabled = false;
             buttonValidate.Enabled = false;
             buttonCreateTeamsAuto.Enabled = true;
+            unsaved();
 
         }
 
@@ -109,6 +113,7 @@ namespace sc2_matchmaker
                         Core = new Core(currentFile);
                         core.openPlayers();
                         actualizeCheckedListPlayer();
+                        saved();
                     }
                 }
                 catch (Exception ex)
@@ -198,6 +203,7 @@ namespace sc2_matchmaker
                 core.CurrentFile = currentFile;
                 core.savePlayers();
             }
+            saved();
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -221,13 +227,14 @@ namespace sc2_matchmaker
                     {
                         core.CurrentFile = currentFile;
                         core.savePlayers();
+                        saved();
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error: Could not save file. Original error: " + ex.Message);
                 }
-            }
+            } 
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -368,6 +375,23 @@ namespace sc2_matchmaker
         private void validateTeam()
         {
             core.winningTeam(comboBoxWinningTeam.SelectedIndex);
+            unsaved();
+        }
+
+        public void unsaved()
+        {
+            modif = true;
+            if (currentFile != null)
+                Text = title + " - " + Path.GetFileName(currentFile) + ast;
+            else
+                Text = title + " - New File" + ast;
+        }
+
+        public void saved()
+        {
+            modif = false;
+            if (currentFile != null)
+                Text = title + " - " + Path.GetFileName(currentFile);
         }
 
         private void buttonValidate_Click(object sender, EventArgs e)
