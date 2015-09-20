@@ -56,8 +56,8 @@ namespace sc2_matchmaker
             //Header
             int i = 0;
             tabular.Add(new List<string>());
-            tabular[i].Add(Name);
             tabular[i].Add(Rank);
+            tabular[i].Add(Name);
             tabular[i].Add(Overall);
             tabular[i].Add(Terran);
             tabular[i].Add(Zerg);
