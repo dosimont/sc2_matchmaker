@@ -14,15 +14,10 @@ namespace sc2_matchmaker
         List<List<string>> tabular = new List<List<string>>();
         List<int> maxColumn = new List<int>();
 
-        string Header = "---"+System.Environment.NewLine +
-            "layout: sc2"+System.Environment.NewLine +
-            "title: SC2 Matchmaker"+ System.Environment.NewLine + 
-            "tags: []" + System.Environment.NewLine +
-            "comments: false" + System.Environment.NewLine + 
-            "share: false"+ System.Environment.NewLine + 
-            "image:"+System.Environment.NewLine +
-            "feature: sample-image-1.jpg"+System.Environment.NewLine+
-            "---" + System.Environment.NewLine + System.Environment.NewLine;
+        string HeaderA = "---" + System.Environment.NewLine +
+            "layout: sc2" + System.Environment.NewLine;
+        string HeaderB = "---" + System.Environment.NewLine;
+        //"---" + System.Environment.NewLine + System.Environment.NewLine;
 
 
         const string Name = " Name ";
@@ -39,8 +34,9 @@ namespace sc2_matchmaker
         const string None = "None";
         const string Sp = " ";
 
-        const int NameIndex = 0;
-        const int RankIndex = 1;
+ 
+        const int RankIndex = 0;
+        const int NameIndex = 1;
         const int OverallIndex = 2;
         const int TerranIndex = 3;
         const int ZergIndex = 4;
@@ -71,8 +67,8 @@ namespace sc2_matchmaker
             {
                 i++;
                 tabular.Add(new List<string>());
-                tabular[i].Add(Space(player.Name));
                 tabular[i].Add(Space(i.ToString()));
+                tabular[i].Add(Space(player.Name));
                 tabular[i].Add(Space(player.getOverallElo() + " (" + player.getOverallVictory() + "/" + player.getOverallDefeat() + ")"));
                 if (player.Races[Constants.Terran])
                     tabular[i].Add(Space(player.Elo[Constants.Terran] + " (" + player.Victory[Constants.Terran] + "/" + player.Defeat[Constants.Terran] + ")"));
@@ -109,7 +105,9 @@ namespace sc2_matchmaker
 
             using (StreamWriter sw = new StreamWriter(file))
             {
-                sw.Write(Header);
+                sw.Write(HeaderA);
+                sw.Write("title: "+ Path.GetFileNameWithoutExtension(file) + System.Environment.NewLine);
+                sw.Write(HeaderB);
                 for (int j = 0; j < tabular.Count; j++)
                 {
                     sw.Write(Sep);
