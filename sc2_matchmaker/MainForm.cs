@@ -34,6 +34,7 @@ namespace sc2_matchmaker
         const string title = "SC2 Matchmaker";
         const string ast = " *";
         bool modif = false;
+        bool connected = false;
 
         internal Core Core
         {
@@ -503,6 +504,11 @@ namespace sc2_matchmaker
                     MessageBox.Show("Error: Could not export file. Original error: " + ex.Message);
                }
             }
+        }
+
+        private void connectedModeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            connected = !connected;
         }
     }
 }
