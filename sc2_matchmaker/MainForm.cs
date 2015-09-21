@@ -31,7 +31,7 @@ namespace sc2_matchmaker
     {
         private string currentFile = null;
         private Core core = new Core();
-        const string title = "SC 2 Matchmaker";
+        const string title = "SC2 Matchmaker";
         const string ast = " *";
         bool modif = false;
 
