@@ -39,11 +39,7 @@ namespace sc2_matchmaker
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.markdownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelHumanPlayers = new System.Windows.Forms.Label();
-            this.buttonAdd = new System.Windows.Forms.Button();
-            this.buttonModify = new System.Windows.Forms.Button();
-            this.buttonRemove = new System.Windows.Forms.Button();
-            this.checkedListBoxHumanPlayers = new System.Windows.Forms.CheckedListBox();
+            this.connectedModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comboBoxMatchType = new System.Windows.Forms.ComboBox();
             this.buttonCreateTeamsAuto = new System.Windows.Forms.Button();
             this.buttonValidate = new System.Windows.Forms.Button();
@@ -51,28 +47,34 @@ namespace sc2_matchmaker
             this.labelMatchmaking = new System.Windows.Forms.Label();
             this.labelParameters = new System.Windows.Forms.Label();
             this.labelMarchResult = new System.Windows.Forms.Label();
-            this.labelRandom = new System.Windows.Forms.Label();
-            this.randomContent = new System.Windows.Forms.Label();
-            this.protossContent = new System.Windows.Forms.Label();
-            this.zergContent = new System.Windows.Forms.Label();
-            this.terranContent = new System.Windows.Forms.Label();
-            this.nameContent = new System.Windows.Forms.Label();
-            this.labelZerg = new System.Windows.Forms.Label();
-            this.labelProtoss = new System.Windows.Forms.Label();
-            this.labelTerran = new System.Windows.Forms.Label();
-            this.labelName = new System.Windows.Forms.Label();
-            this.labelDetails = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.overallContent = new System.Windows.Forms.Label();
-            this.labelOverall = new System.Windows.Forms.Label();
-            this.labelRanked = new System.Windows.Forms.Label();
-            this.rankedContent = new System.Windows.Forms.Label();
             this.richTextBoxTeams = new System.Windows.Forms.RichTextBox();
             this.buttonCreateTeamsManual = new System.Windows.Forms.Button();
             this.labelCreateTeams = new System.Windows.Forms.Label();
+            this.rankedContent = new System.Windows.Forms.Label();
+            this.terranContent = new System.Windows.Forms.Label();
+            this.zergContent = new System.Windows.Forms.Label();
+            this.protossContent = new System.Windows.Forms.Label();
+            this.randomContent = new System.Windows.Forms.Label();
+            this.labelRanked = new System.Windows.Forms.Label();
+            this.labelTerran = new System.Windows.Forms.Label();
+            this.labelZerg = new System.Windows.Forms.Label();
+            this.labelProtoss = new System.Windows.Forms.Label();
+            this.labelRandom = new System.Windows.Forms.Label();
+            this.nameContent = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
+            this.labelDetails = new System.Windows.Forms.Label();
+            this.labelOverall = new System.Windows.Forms.Label();
+            this.overallContent = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelHumanPlayers = new System.Windows.Forms.Label();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonModify = new System.Windows.Forms.Button();
+            this.buttonRemove = new System.Windows.Forms.Button();
+            this.checkedListBoxHumanPlayers = new System.Windows.Forms.CheckedListBox();
             this.buttonCheckAll = new System.Windows.Forms.Button();
             this.buttonUncheckAll = new System.Windows.Forms.Button();
-            this.connectedModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.githubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -103,28 +105,28 @@ namespace sc2_matchmaker
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
@@ -133,71 +135,29 @@ namespace sc2_matchmaker
             this.exportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.markdownToolStripMenuItem});
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exportToolStripMenuItem.Text = "Export";
             // 
             // markdownToolStripMenuItem
             // 
             this.markdownToolStripMenuItem.Name = "markdownToolStripMenuItem";
-            this.markdownToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.markdownToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.markdownToolStripMenuItem.Text = "Markdown";
             this.markdownToolStripMenuItem.Click += new System.EventHandler(this.markdownToolStripMenuItem_Click);
             // 
-            // labelHumanPlayers
+            // connectedModeToolStripMenuItem
             // 
-            this.labelHumanPlayers.AutoSize = true;
-            this.labelHumanPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHumanPlayers.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.labelHumanPlayers.Location = new System.Drawing.Point(9, 36);
-            this.labelHumanPlayers.Name = "labelHumanPlayers";
-            this.labelHumanPlayers.Size = new System.Drawing.Size(63, 13);
-            this.labelHumanPlayers.TabIndex = 1;
-            this.labelHumanPlayers.Text = "1) Players";
-            this.labelHumanPlayers.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Location = new System.Drawing.Point(134, 284);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(55, 23);
-            this.buttonAdd.TabIndex = 3;
-            this.buttonAdd.Text = "Add";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
-            // 
-            // buttonModify
-            // 
-            this.buttonModify.Location = new System.Drawing.Point(73, 284);
-            this.buttonModify.Name = "buttonModify";
-            this.buttonModify.Size = new System.Drawing.Size(55, 23);
-            this.buttonModify.TabIndex = 3;
-            this.buttonModify.Text = "Modify";
-            this.buttonModify.UseVisualStyleBackColor = true;
-            this.buttonModify.Click += new System.EventHandler(this.buttonModify_Click);
-            // 
-            // buttonRemove
-            // 
-            this.buttonRemove.Location = new System.Drawing.Point(12, 284);
-            this.buttonRemove.Name = "buttonRemove";
-            this.buttonRemove.Size = new System.Drawing.Size(55, 23);
-            this.buttonRemove.TabIndex = 3;
-            this.buttonRemove.Text = "Remove";
-            this.buttonRemove.UseVisualStyleBackColor = true;
-            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
-            // 
-            // checkedListBoxHumanPlayers
-            // 
-            this.checkedListBoxHumanPlayers.FormattingEnabled = true;
-            this.checkedListBoxHumanPlayers.Location = new System.Drawing.Point(12, 64);
-            this.checkedListBoxHumanPlayers.Name = "checkedListBoxHumanPlayers";
-            this.checkedListBoxHumanPlayers.Size = new System.Drawing.Size(177, 214);
-            this.checkedListBoxHumanPlayers.TabIndex = 5;
-            this.checkedListBoxHumanPlayers.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxHumanPlayers_SelectedIndexChanged);
+            this.connectedModeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.githubToolStripMenuItem});
+            this.connectedModeToolStripMenuItem.Name = "connectedModeToolStripMenuItem";
+            this.connectedModeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.connectedModeToolStripMenuItem.Text = "Connect";
+            this.connectedModeToolStripMenuItem.Click += new System.EventHandler(this.connectedModeToolStripMenuItem_Click);
             // 
             // comboBoxMatchType
             // 
             this.comboBoxMatchType.FormattingEnabled = true;
-            this.comboBoxMatchType.Location = new System.Drawing.Point(13, 393);
+            this.comboBoxMatchType.Location = new System.Drawing.Point(12, 434);
             this.comboBoxMatchType.Name = "comboBoxMatchType";
             this.comboBoxMatchType.Size = new System.Drawing.Size(412, 21);
             this.comboBoxMatchType.TabIndex = 6;
@@ -205,7 +165,7 @@ namespace sc2_matchmaker
             // 
             // buttonCreateTeamsAuto
             // 
-            this.buttonCreateTeamsAuto.Location = new System.Drawing.Point(301, 469);
+            this.buttonCreateTeamsAuto.Location = new System.Drawing.Point(300, 510);
             this.buttonCreateTeamsAuto.Name = "buttonCreateTeamsAuto";
             this.buttonCreateTeamsAuto.Size = new System.Drawing.Size(59, 23);
             this.buttonCreateTeamsAuto.TabIndex = 3;
@@ -215,7 +175,7 @@ namespace sc2_matchmaker
             // 
             // buttonValidate
             // 
-            this.buttonValidate.Location = new System.Drawing.Point(366, 803);
+            this.buttonValidate.Location = new System.Drawing.Point(365, 844);
             this.buttonValidate.Name = "buttonValidate";
             this.buttonValidate.Size = new System.Drawing.Size(59, 23);
             this.buttonValidate.TabIndex = 3;
@@ -226,7 +186,7 @@ namespace sc2_matchmaker
             // comboBoxWinningTeam
             // 
             this.comboBoxWinningTeam.FormattingEnabled = true;
-            this.comboBoxWinningTeam.Location = new System.Drawing.Point(13, 776);
+            this.comboBoxWinningTeam.Location = new System.Drawing.Point(12, 817);
             this.comboBoxWinningTeam.Name = "comboBoxWinningTeam";
             this.comboBoxWinningTeam.Size = new System.Drawing.Size(412, 21);
             this.comboBoxWinningTeam.TabIndex = 6;
@@ -238,22 +198,22 @@ namespace sc2_matchmaker
             this.labelMatchmaking.AutoSize = true;
             this.labelMatchmaking.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMatchmaking.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.labelMatchmaking.Location = new System.Drawing.Point(10, 507);
+            this.labelMatchmaking.Location = new System.Drawing.Point(9, 548);
             this.labelMatchmaking.Name = "labelMatchmaking";
-            this.labelMatchmaking.Size = new System.Drawing.Size(59, 13);
+            this.labelMatchmaking.Size = new System.Drawing.Size(44, 13);
             this.labelMatchmaking.TabIndex = 7;
-            this.labelMatchmaking.Text = "4) Teams";
+            this.labelMatchmaking.Text = "Teams";
             // 
             // labelParameters
             // 
             this.labelParameters.AutoSize = true;
             this.labelParameters.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelParameters.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.labelParameters.Location = new System.Drawing.Point(10, 366);
+            this.labelParameters.Location = new System.Drawing.Point(9, 407);
             this.labelParameters.Name = "labelParameters";
-            this.labelParameters.Size = new System.Drawing.Size(124, 13);
+            this.labelParameters.Size = new System.Drawing.Size(109, 13);
             this.labelParameters.TabIndex = 9;
-            this.labelParameters.Text = "2) Match Parameters";
+            this.labelParameters.Text = "Match Parameters";
             this.labelParameters.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // labelMarchResult
@@ -261,47 +221,49 @@ namespace sc2_matchmaker
             this.labelMarchResult.AutoSize = true;
             this.labelMarchResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMarchResult.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.labelMarchResult.Location = new System.Drawing.Point(10, 748);
+            this.labelMarchResult.Location = new System.Drawing.Point(9, 789);
             this.labelMarchResult.Name = "labelMarchResult";
-            this.labelMarchResult.Size = new System.Drawing.Size(97, 13);
+            this.labelMarchResult.Size = new System.Drawing.Size(82, 13);
             this.labelMarchResult.TabIndex = 10;
-            this.labelMarchResult.Text = "5) Match Result";
+            this.labelMarchResult.Text = "Match Result";
             // 
-            // labelRandom
+            // richTextBoxTeams
             // 
-            this.labelRandom.AutoSize = true;
-            this.labelRandom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRandom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.labelRandom.Location = new System.Drawing.Point(3, 162);
-            this.labelRandom.Name = "labelRandom";
-            this.labelRandom.Size = new System.Drawing.Size(50, 13);
-            this.labelRandom.TabIndex = 7;
-            this.labelRandom.Text = "Random:";
-            this.labelRandom.Click += new System.EventHandler(this.labelOverall_Click);
+            this.richTextBoxTeams.Location = new System.Drawing.Point(15, 574);
+            this.richTextBoxTeams.Name = "richTextBoxTeams";
+            this.richTextBoxTeams.Size = new System.Drawing.Size(407, 201);
+            this.richTextBoxTeams.TabIndex = 11;
+            this.richTextBoxTeams.Text = "";
             // 
-            // randomContent
+            // buttonCreateTeamsManual
             // 
-            this.randomContent.AutoSize = true;
-            this.randomContent.Location = new System.Drawing.Point(63, 162);
-            this.randomContent.Name = "randomContent";
-            this.randomContent.Size = new System.Drawing.Size(0, 13);
-            this.randomContent.TabIndex = 8;
+            this.buttonCreateTeamsManual.Location = new System.Drawing.Point(365, 510);
+            this.buttonCreateTeamsManual.Name = "buttonCreateTeamsManual";
+            this.buttonCreateTeamsManual.Size = new System.Drawing.Size(59, 23);
+            this.buttonCreateTeamsManual.TabIndex = 13;
+            this.buttonCreateTeamsManual.Text = "Manual";
+            this.buttonCreateTeamsManual.UseVisualStyleBackColor = true;
+            this.buttonCreateTeamsManual.Click += new System.EventHandler(this.buttonCreateTeamsManual_Click);
             // 
-            // protossContent
+            // labelCreateTeams
             // 
-            this.protossContent.AutoSize = true;
-            this.protossContent.Location = new System.Drawing.Point(63, 135);
-            this.protossContent.Name = "protossContent";
-            this.protossContent.Size = new System.Drawing.Size(0, 13);
-            this.protossContent.TabIndex = 8;
+            this.labelCreateTeams.AutoSize = true;
+            this.labelCreateTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCreateTeams.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.labelCreateTeams.Location = new System.Drawing.Point(9, 479);
+            this.labelCreateTeams.Name = "labelCreateTeams";
+            this.labelCreateTeams.Size = new System.Drawing.Size(85, 13);
+            this.labelCreateTeams.TabIndex = 9;
+            this.labelCreateTeams.Text = "Create Teams";
+            this.labelCreateTeams.Click += new System.EventHandler(this.label1_Click_1);
             // 
-            // zergContent
+            // rankedContent
             // 
-            this.zergContent.AutoSize = true;
-            this.zergContent.Location = new System.Drawing.Point(63, 108);
-            this.zergContent.Name = "zergContent";
-            this.zergContent.Size = new System.Drawing.Size(0, 13);
-            this.zergContent.TabIndex = 8;
+            this.rankedContent.AutoSize = true;
+            this.rankedContent.Location = new System.Drawing.Point(63, 54);
+            this.rankedContent.Name = "rankedContent";
+            this.rankedContent.Size = new System.Drawing.Size(0, 13);
+            this.rankedContent.TabIndex = 17;
             // 
             // terranContent
             // 
@@ -311,13 +273,51 @@ namespace sc2_matchmaker
             this.terranContent.Size = new System.Drawing.Size(0, 13);
             this.terranContent.TabIndex = 8;
             // 
-            // nameContent
+            // zergContent
             // 
-            this.nameContent.AutoSize = true;
-            this.nameContent.Location = new System.Drawing.Point(63, 27);
-            this.nameContent.Name = "nameContent";
-            this.nameContent.Size = new System.Drawing.Size(0, 13);
-            this.nameContent.TabIndex = 8;
+            this.zergContent.AutoSize = true;
+            this.zergContent.Location = new System.Drawing.Point(63, 108);
+            this.zergContent.Name = "zergContent";
+            this.zergContent.Size = new System.Drawing.Size(0, 13);
+            this.zergContent.TabIndex = 8;
+            // 
+            // protossContent
+            // 
+            this.protossContent.AutoSize = true;
+            this.protossContent.Location = new System.Drawing.Point(63, 135);
+            this.protossContent.Name = "protossContent";
+            this.protossContent.Size = new System.Drawing.Size(0, 13);
+            this.protossContent.TabIndex = 8;
+            // 
+            // randomContent
+            // 
+            this.randomContent.AutoSize = true;
+            this.randomContent.Location = new System.Drawing.Point(63, 162);
+            this.randomContent.Name = "randomContent";
+            this.randomContent.Size = new System.Drawing.Size(0, 13);
+            this.randomContent.TabIndex = 8;
+            // 
+            // labelRanked
+            // 
+            this.labelRanked.AutoSize = true;
+            this.labelRanked.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRanked.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.labelRanked.Location = new System.Drawing.Point(3, 54);
+            this.labelRanked.Name = "labelRanked";
+            this.labelRanked.Size = new System.Drawing.Size(36, 13);
+            this.labelRanked.TabIndex = 9;
+            this.labelRanked.Text = "Rank:";
+            // 
+            // labelTerran
+            // 
+            this.labelTerran.AutoSize = true;
+            this.labelTerran.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTerran.ForeColor = System.Drawing.Color.Blue;
+            this.labelTerran.Location = new System.Drawing.Point(3, 81);
+            this.labelTerran.Name = "labelTerran";
+            this.labelTerran.Size = new System.Drawing.Size(41, 13);
+            this.labelTerran.TabIndex = 7;
+            this.labelTerran.Text = "Terran:";
             // 
             // labelZerg
             // 
@@ -341,16 +341,25 @@ namespace sc2_matchmaker
             this.labelProtoss.TabIndex = 7;
             this.labelProtoss.Text = "Protoss:";
             // 
-            // labelTerran
+            // labelRandom
             // 
-            this.labelTerran.AutoSize = true;
-            this.labelTerran.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTerran.ForeColor = System.Drawing.Color.Blue;
-            this.labelTerran.Location = new System.Drawing.Point(3, 81);
-            this.labelTerran.Name = "labelTerran";
-            this.labelTerran.Size = new System.Drawing.Size(41, 13);
-            this.labelTerran.TabIndex = 7;
-            this.labelTerran.Text = "Terran:";
+            this.labelRandom.AutoSize = true;
+            this.labelRandom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRandom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.labelRandom.Location = new System.Drawing.Point(3, 162);
+            this.labelRandom.Name = "labelRandom";
+            this.labelRandom.Size = new System.Drawing.Size(50, 13);
+            this.labelRandom.TabIndex = 7;
+            this.labelRandom.Text = "Random:";
+            this.labelRandom.Click += new System.EventHandler(this.labelOverall_Click);
+            // 
+            // nameContent
+            // 
+            this.nameContent.AutoSize = true;
+            this.nameContent.Location = new System.Drawing.Point(63, 27);
+            this.nameContent.Name = "nameContent";
+            this.nameContent.Size = new System.Drawing.Size(0, 13);
+            this.nameContent.TabIndex = 8;
             // 
             // labelName
             // 
@@ -374,6 +383,25 @@ namespace sc2_matchmaker
             this.labelDetails.TabIndex = 7;
             this.labelDetails.Text = "Details";
             // 
+            // labelOverall
+            // 
+            this.labelOverall.AutoSize = true;
+            this.labelOverall.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOverall.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.labelOverall.Location = new System.Drawing.Point(3, 189);
+            this.labelOverall.Name = "labelOverall";
+            this.labelOverall.Size = new System.Drawing.Size(43, 13);
+            this.labelOverall.TabIndex = 10;
+            this.labelOverall.Text = "Overall:";
+            // 
+            // overallContent
+            // 
+            this.overallContent.AutoSize = true;
+            this.overallContent.Location = new System.Drawing.Point(63, 189);
+            this.overallContent.Name = "overallContent";
+            this.overallContent.Size = new System.Drawing.Size(0, 13);
+            this.overallContent.TabIndex = 16;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -394,7 +422,7 @@ namespace sc2_matchmaker
             this.tableLayoutPanel1.Controls.Add(this.zergContent, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.terranContent, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.rankedContent, 1, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(206, 64);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(205, 105);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
@@ -409,77 +437,60 @@ namespace sc2_matchmaker
             this.tableLayoutPanel1.TabIndex = 8;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // overallContent
+            // labelHumanPlayers
             // 
-            this.overallContent.AutoSize = true;
-            this.overallContent.Location = new System.Drawing.Point(63, 189);
-            this.overallContent.Name = "overallContent";
-            this.overallContent.Size = new System.Drawing.Size(0, 13);
-            this.overallContent.TabIndex = 16;
+            this.labelHumanPlayers.AutoSize = true;
+            this.labelHumanPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHumanPlayers.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.labelHumanPlayers.Location = new System.Drawing.Point(8, 77);
+            this.labelHumanPlayers.Name = "labelHumanPlayers";
+            this.labelHumanPlayers.Size = new System.Drawing.Size(48, 13);
+            this.labelHumanPlayers.TabIndex = 1;
+            this.labelHumanPlayers.Text = "Players";
+            this.labelHumanPlayers.Click += new System.EventHandler(this.label1_Click);
             // 
-            // labelOverall
+            // buttonAdd
             // 
-            this.labelOverall.AutoSize = true;
-            this.labelOverall.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOverall.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.labelOverall.Location = new System.Drawing.Point(3, 189);
-            this.labelOverall.Name = "labelOverall";
-            this.labelOverall.Size = new System.Drawing.Size(43, 13);
-            this.labelOverall.TabIndex = 10;
-            this.labelOverall.Text = "Overall:";
+            this.buttonAdd.Location = new System.Drawing.Point(133, 325);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(55, 23);
+            this.buttonAdd.TabIndex = 3;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // labelRanked
+            // buttonModify
             // 
-            this.labelRanked.AutoSize = true;
-            this.labelRanked.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRanked.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.labelRanked.Location = new System.Drawing.Point(3, 54);
-            this.labelRanked.Name = "labelRanked";
-            this.labelRanked.Size = new System.Drawing.Size(36, 13);
-            this.labelRanked.TabIndex = 9;
-            this.labelRanked.Text = "Rank:";
+            this.buttonModify.Location = new System.Drawing.Point(72, 325);
+            this.buttonModify.Name = "buttonModify";
+            this.buttonModify.Size = new System.Drawing.Size(55, 23);
+            this.buttonModify.TabIndex = 3;
+            this.buttonModify.Text = "Modify";
+            this.buttonModify.UseVisualStyleBackColor = true;
+            this.buttonModify.Click += new System.EventHandler(this.buttonModify_Click);
             // 
-            // rankedContent
+            // buttonRemove
             // 
-            this.rankedContent.AutoSize = true;
-            this.rankedContent.Location = new System.Drawing.Point(63, 54);
-            this.rankedContent.Name = "rankedContent";
-            this.rankedContent.Size = new System.Drawing.Size(0, 13);
-            this.rankedContent.TabIndex = 17;
+            this.buttonRemove.Location = new System.Drawing.Point(11, 325);
+            this.buttonRemove.Name = "buttonRemove";
+            this.buttonRemove.Size = new System.Drawing.Size(55, 23);
+            this.buttonRemove.TabIndex = 3;
+            this.buttonRemove.Text = "Remove";
+            this.buttonRemove.UseVisualStyleBackColor = true;
+            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
-            // richTextBoxTeams
+            // checkedListBoxHumanPlayers
             // 
-            this.richTextBoxTeams.Location = new System.Drawing.Point(16, 533);
-            this.richTextBoxTeams.Name = "richTextBoxTeams";
-            this.richTextBoxTeams.Size = new System.Drawing.Size(407, 201);
-            this.richTextBoxTeams.TabIndex = 11;
-            this.richTextBoxTeams.Text = "";
-            // 
-            // buttonCreateTeamsManual
-            // 
-            this.buttonCreateTeamsManual.Location = new System.Drawing.Point(366, 469);
-            this.buttonCreateTeamsManual.Name = "buttonCreateTeamsManual";
-            this.buttonCreateTeamsManual.Size = new System.Drawing.Size(59, 23);
-            this.buttonCreateTeamsManual.TabIndex = 13;
-            this.buttonCreateTeamsManual.Text = "Manual";
-            this.buttonCreateTeamsManual.UseVisualStyleBackColor = true;
-            this.buttonCreateTeamsManual.Click += new System.EventHandler(this.buttonCreateTeamsManual_Click);
-            // 
-            // labelCreateTeams
-            // 
-            this.labelCreateTeams.AutoSize = true;
-            this.labelCreateTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCreateTeams.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.labelCreateTeams.Location = new System.Drawing.Point(10, 438);
-            this.labelCreateTeams.Name = "labelCreateTeams";
-            this.labelCreateTeams.Size = new System.Drawing.Size(100, 13);
-            this.labelCreateTeams.TabIndex = 9;
-            this.labelCreateTeams.Text = "3) Create Teams";
-            this.labelCreateTeams.Click += new System.EventHandler(this.label1_Click_1);
+            this.checkedListBoxHumanPlayers.FormattingEnabled = true;
+            this.checkedListBoxHumanPlayers.Location = new System.Drawing.Point(11, 105);
+            this.checkedListBoxHumanPlayers.Name = "checkedListBoxHumanPlayers";
+            this.checkedListBoxHumanPlayers.Size = new System.Drawing.Size(177, 214);
+            this.checkedListBoxHumanPlayers.TabIndex = 5;
+            this.checkedListBoxHumanPlayers.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxHumanPlayers_SelectedIndexChanged);
             // 
             // buttonCheckAll
             // 
-            this.buttonCheckAll.Location = new System.Drawing.Point(24, 313);
+            this.buttonCheckAll.Location = new System.Drawing.Point(23, 354);
             this.buttonCheckAll.Name = "buttonCheckAll";
             this.buttonCheckAll.Size = new System.Drawing.Size(69, 23);
             this.buttonCheckAll.TabIndex = 14;
@@ -489,7 +500,7 @@ namespace sc2_matchmaker
             // 
             // buttonUncheckAll
             // 
-            this.buttonUncheckAll.Location = new System.Drawing.Point(99, 313);
+            this.buttonUncheckAll.Location = new System.Drawing.Point(98, 354);
             this.buttonUncheckAll.Name = "buttonUncheckAll";
             this.buttonUncheckAll.Size = new System.Drawing.Size(79, 23);
             this.buttonUncheckAll.TabIndex = 15;
@@ -497,19 +508,27 @@ namespace sc2_matchmaker
             this.buttonUncheckAll.UseVisualStyleBackColor = true;
             this.buttonUncheckAll.Click += new System.EventHandler(this.buttonUncheckAll_Click);
             // 
-            // connectedModeToolStripMenuItem
+            // githubToolStripMenuItem
             // 
-            this.connectedModeToolStripMenuItem.Name = "connectedModeToolStripMenuItem";
-            this.connectedModeToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.connectedModeToolStripMenuItem.Text = "Connected Mode";
-            this.connectedModeToolStripMenuItem.Click += new System.EventHandler(this.connectedModeToolStripMenuItem_Click);
+            this.githubToolStripMenuItem.Name = "githubToolStripMenuItem";
+            this.githubToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.githubToolStripMenuItem.Text = "Github";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(11, 47);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(413, 21);
+            this.comboBox1.TabIndex = 16;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(434, 834);
+            this.ClientSize = new System.Drawing.Size(434, 877);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.buttonUncheckAll);
             this.Controls.Add(this.buttonCheckAll);
             this.Controls.Add(this.buttonCreateTeamsManual);
@@ -551,11 +570,6 @@ namespace sc2_matchmaker
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
-        private System.Windows.Forms.Label labelHumanPlayers;
-        private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Button buttonModify;
-        private System.Windows.Forms.Button buttonRemove;
-        private System.Windows.Forms.CheckedListBox checkedListBoxHumanPlayers;
         private System.Windows.Forms.ComboBox comboBoxMatchType;
         private System.Windows.Forms.Button buttonCreateTeamsAuto;
         private System.Windows.Forms.Button buttonValidate;
@@ -563,30 +577,37 @@ namespace sc2_matchmaker
         private System.Windows.Forms.Label labelMatchmaking;
         private System.Windows.Forms.Label labelParameters;
         private System.Windows.Forms.Label labelMarchResult;
-        private System.Windows.Forms.Label labelRandom;
-        private System.Windows.Forms.Label randomContent;
-        private System.Windows.Forms.Label protossContent;
-        private System.Windows.Forms.Label zergContent;
-        private System.Windows.Forms.Label terranContent;
-        private System.Windows.Forms.Label nameContent;
-        private System.Windows.Forms.Label labelZerg;
-        private System.Windows.Forms.Label labelProtoss;
-        private System.Windows.Forms.Label labelTerran;
-        private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.Label labelDetails;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.RichTextBox richTextBoxTeams;
         private System.Windows.Forms.Button buttonCreateTeamsManual;
         private System.Windows.Forms.Label labelCreateTeams;
-        private System.Windows.Forms.Button buttonCheckAll;
-        private System.Windows.Forms.Button buttonUncheckAll;
-        private System.Windows.Forms.Label labelOverall;
-        private System.Windows.Forms.Label labelRanked;
-        private System.Windows.Forms.Label overallContent;
-        private System.Windows.Forms.Label rankedContent;
         private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem markdownToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem connectedModeToolStripMenuItem;
+        private System.Windows.Forms.Label rankedContent;
+        private System.Windows.Forms.Label terranContent;
+        private System.Windows.Forms.Label zergContent;
+        private System.Windows.Forms.Label protossContent;
+        private System.Windows.Forms.Label randomContent;
+        private System.Windows.Forms.Label labelRanked;
+        private System.Windows.Forms.Label labelTerran;
+        private System.Windows.Forms.Label labelZerg;
+        private System.Windows.Forms.Label labelProtoss;
+        private System.Windows.Forms.Label labelRandom;
+        private System.Windows.Forms.Label nameContent;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Label labelDetails;
+        private System.Windows.Forms.Label labelOverall;
+        private System.Windows.Forms.Label overallContent;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label labelHumanPlayers;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonModify;
+        private System.Windows.Forms.Button buttonRemove;
+        private System.Windows.Forms.CheckedListBox checkedListBoxHumanPlayers;
+        private System.Windows.Forms.Button buttonCheckAll;
+        private System.Windows.Forms.Button buttonUncheckAll;
+        private System.Windows.Forms.ToolStripMenuItem githubToolStripMenuItem;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
