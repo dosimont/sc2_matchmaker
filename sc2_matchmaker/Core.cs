@@ -139,11 +139,13 @@ namespace sc2_matchmaker
         public void addPlayer(string name, bool terran, bool zerg, bool protoss, bool random)
         {
             HumanPlayers.Add(name, new Player(name, terran, zerg, protoss, random));
+            computeRanks();
         }
 
         public void removePlayer(string name)
         {
             HumanPlayers.Remove(name);
+            computeRanks();
         }
 
         public void modifyPlayer(Player player, string newname, bool terran, bool zerg, bool protoss, bool random)
@@ -152,6 +154,7 @@ namespace sc2_matchmaker
             player.Name = newname;
             player.raceMask(terran, zerg, protoss, random);
             HumanPlayers.Add(newname, player);
+            computeRanks();
         }
 
         public void savePlayers()
