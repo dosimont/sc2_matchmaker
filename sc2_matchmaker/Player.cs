@@ -142,12 +142,23 @@ namespace sc2_matchmaker
             }
         }
 
+        public bool hasBeenPlayed(int race)
+        {
+            if ((defeat[race] != 0) || (victory[race] != 0)){
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public int getOverallVictory()
         {
             int temp = 0;
             for (int i = 0; i < Constants.RaceNumber; i++)
             {
-                if (races[i])
+                if (hasBeenPlayed(i))
                 {
                     temp += victory[i];
                 }
@@ -160,7 +171,7 @@ namespace sc2_matchmaker
             int temp = 0;
             for (int i = 0; i < Constants.RaceNumber; i++)
             {
-                if (races[i])
+                if (hasBeenPlayed(i))
                 {
                     temp += defeat[i];
                 }

@@ -70,19 +70,19 @@ namespace sc2_matchmaker
                 tabular[i].Add(Space(i.ToString()));
                 tabular[i].Add(Space(player.Name));
                 tabular[i].Add(Space(player.getOverallElo() + " (" + player.getOverallVictory() + "/" + player.getOverallDefeat() + ")"));
-                if (player.Races[Constants.Terran])
+                if (player.hasBeenPlayed(Constants.Terran))
                     tabular[i].Add(Space(player.Elo[Constants.Terran] + " (" + player.Victory[Constants.Terran] + "/" + player.Defeat[Constants.Terran] + ")"));
                 else
                     tabular[i].Add(None);
-                if (player.Races[Constants.Zerg])
+                if (player.hasBeenPlayed(Constants.Zerg))
                     tabular[i].Add(Space(player.Elo[Constants.Zerg] + " (" + player.Victory[Constants.Zerg] + "/" + player.Defeat[Constants.Zerg] + ")"));
                 else
                     tabular[i].Add(None);
-                if (player.Races[Constants.Protoss])
+                if (player.hasBeenPlayed(Constants.Protoss))
                     tabular[i].Add(Space(player.Elo[Constants.Protoss] + " (" + player.Victory[Constants.Protoss] + "/" + player.Defeat[Constants.Protoss] + ")"));
                 else
                     tabular[i].Add(None);
-                if (player.Races[Constants.Random])
+                if (player.hasBeenPlayed(Constants.Random))
                     tabular[i].Add(Space(player.Elo[Constants.Random] + " (" + player.Victory[Constants.Random] + "/" + player.Defeat[Constants.Random] + ")"));
                 else
                     tabular[i].Add(None);

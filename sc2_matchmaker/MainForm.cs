@@ -143,6 +143,7 @@ namespace sc2_matchmaker
             checkedListBoxHumanPlayers.Items.Remove(player);
             core.modifyPlayer(player, newname, terran, zerg, protoss, random);
             checkedListBoxHumanPlayers.Items.Add(core.HumanPlayers[newname], checkedItem);
+            checkedListBoxHumanPlayers.SelectedItem=core.HumanPlayers[newname];
             updateDetailsDisplay();
         }
 
@@ -280,10 +281,38 @@ namespace sc2_matchmaker
             core.computeRanks();
             nameContent.Text = player.Name;
             rankedContent.Text = core.getRank(player).ToString();
-            terranContent.Text = "Win: " + player.Victory[Constants.Terran] + ", Loss: " + player.Defeat[Constants.Terran] + ", Elo: " + player.Elo[Constants.Terran];
-            zergContent.Text = "Win: " + player.Victory[Constants.Zerg] + ", Loss: " + player.Defeat[Constants.Zerg] + ", Elo: " + player.Elo[Constants.Zerg];
-            protossContent.Text = "Win: " + player.Victory[Constants.Protoss] + ", Loss: " + player.Defeat[Constants.Protoss] + ", Elo: " + player.Elo[Constants.Protoss];
-            randomContent.Text = "Win: " + player.Victory[Constants.Random] + ", Loss: " + player.Defeat[Constants.Random] + ", Elo: " + player.Elo[Constants.Random];
+            if (player.hasBeenPlayed(Constants.Terran))
+            {
+                terranContent.Text = "Win: " + player.Victory[Constants.Terran] + ", Loss: " + player.Defeat[Constants.Terran] + ", Elo: " + player.Elo[Constants.Terran];
+            }
+            else
+            {
+                terranContent.Text = "Unitialized, Estimated Elo: " + player.Elo[Constants.Terran];
+            }
+            if (player.hasBeenPlayed(Constants.Zerg))
+            {
+                zergContent.Text = "Win: " + player.Victory[Constants.Zerg] + ", Loss: " + player.Defeat[Constants.Zerg] + ", Elo: " + player.Elo[Constants.Zerg];
+            }
+            else
+            {
+                zergContent.Text = "Unitialized, Estimated Elo: " + player.Elo[Constants.Zerg];
+            }
+            if (player.hasBeenPlayed(Constants.Protoss))
+            {
+                protossContent.Text = "Win: " + player.Victory[Constants.Protoss] + ", Loss: " + player.Defeat[Constants.Protoss] + ", Elo: " + player.Elo[Constants.Protoss];
+            }
+            else
+            {
+                protossContent.Text = "Unitialized, Estimated Elo: " + player.Elo[Constants.Protoss];
+            }
+            if (player.hasBeenPlayed(Constants.Random))
+            {
+                randomContent.Text = "Win: " + player.Victory[Constants.Random] + ", Loss: " + player.Defeat[Constants.Random] + ", Elo: " + player.Elo[Constants.Random];
+            }
+            else
+            {
+                randomContent.Text = "Unitialized, Estimated Elo: " + player.Elo[Constants.Random];
+            }
             overallContent.Text = "Win: " + player.getOverallVictory() + ", Loss: " + player.getOverallDefeat() + ", Elo: " + player.getOverallElo();
             terranContent.Enabled = player.Races[Constants.Terran];
             labelTerran.Enabled = player.Races[Constants.Terran];
