@@ -287,7 +287,7 @@ namespace sc2_matchmaker
             }
             else
             {
-                terranContent.Text = "Unitialized, Estimated Elo: " + player.Elo[Constants.Terran];
+                terranContent.Text = "Estimated Elo: " + player.Elo[Constants.Terran];
             }
             if (player.hasBeenPlayed(Constants.Zerg))
             {
@@ -295,7 +295,7 @@ namespace sc2_matchmaker
             }
             else
             {
-                zergContent.Text = "Unitialized, Estimated Elo: " + player.Elo[Constants.Zerg];
+                zergContent.Text = "Estimated Elo: " + player.Elo[Constants.Zerg];
             }
             if (player.hasBeenPlayed(Constants.Protoss))
             {
@@ -303,7 +303,7 @@ namespace sc2_matchmaker
             }
             else
             {
-                protossContent.Text = "Unitialized, Estimated Elo: " + player.Elo[Constants.Protoss];
+                protossContent.Text = "Estimated Elo: " + player.Elo[Constants.Protoss];
             }
             if (player.hasBeenPlayed(Constants.Random))
             {
@@ -311,7 +311,7 @@ namespace sc2_matchmaker
             }
             else
             {
-                randomContent.Text = "Unitialized, Estimated Elo: " + player.Elo[Constants.Random];
+                randomContent.Text = "Estimated Elo: " + player.Elo[Constants.Random];
             }
             overallContent.Text = "Win: " + player.getOverallVictory() + ", Loss: " + player.getOverallDefeat() + ", Elo: " + player.getOverallElo();
             terranContent.Enabled = player.Races[Constants.Terran];
