@@ -191,7 +191,10 @@ namespace sc2_matchmaker
                     count++;
                 }
             }
-            return temp/count;
+            if (count != 0)
+                return temp / count;
+            else
+                return 0;
         }
 
         public int CompareTo(object obj)
