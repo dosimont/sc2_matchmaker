@@ -185,7 +185,7 @@ namespace sc2_matchmaker
             int count = 0;
             for (int i = 0; i < Constants.RaceNumber; i++)
             {
-                if (races[i])
+                if (hasBeenPlayed(i))
                 {
                     temp += elo[i];
                     count++;
