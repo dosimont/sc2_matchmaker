@@ -105,28 +105,28 @@ namespace sc2_matchmaker
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
@@ -135,7 +135,7 @@ namespace sc2_matchmaker
             this.exportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.markdownToolStripMenuItem});
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exportToolStripMenuItem.Text = "Export";
             // 
             // markdownToolStripMenuItem
@@ -153,7 +153,7 @@ namespace sc2_matchmaker
             this.labelHumanPlayers.Location = new System.Drawing.Point(9, 36);
             this.labelHumanPlayers.Name = "labelHumanPlayers";
             this.labelHumanPlayers.Size = new System.Drawing.Size(63, 13);
-            this.labelHumanPlayers.TabIndex = 1;
+            this.labelHumanPlayers.TabIndex = 99;
             this.labelHumanPlayers.Text = "1) Players";
             this.labelHumanPlayers.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -162,7 +162,7 @@ namespace sc2_matchmaker
             this.buttonAdd.Location = new System.Drawing.Point(134, 284);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(55, 23);
-            this.buttonAdd.TabIndex = 3;
+            this.buttonAdd.TabIndex = 4;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
@@ -182,7 +182,7 @@ namespace sc2_matchmaker
             this.buttonRemove.Location = new System.Drawing.Point(12, 284);
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.Size = new System.Drawing.Size(55, 23);
-            this.buttonRemove.TabIndex = 3;
+            this.buttonRemove.TabIndex = 2;
             this.buttonRemove.Text = "Remove";
             this.buttonRemove.UseVisualStyleBackColor = true;
             this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
@@ -193,7 +193,7 @@ namespace sc2_matchmaker
             this.checkedListBoxHumanPlayers.Location = new System.Drawing.Point(12, 64);
             this.checkedListBoxHumanPlayers.Name = "checkedListBoxHumanPlayers";
             this.checkedListBoxHumanPlayers.Size = new System.Drawing.Size(177, 214);
-            this.checkedListBoxHumanPlayers.TabIndex = 5;
+            this.checkedListBoxHumanPlayers.TabIndex = 1;
             this.checkedListBoxHumanPlayers.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxHumanPlayers_SelectedIndexChanged);
             // 
             // comboBoxMatchType
@@ -202,7 +202,7 @@ namespace sc2_matchmaker
             this.comboBoxMatchType.Location = new System.Drawing.Point(13, 393);
             this.comboBoxMatchType.Name = "comboBoxMatchType";
             this.comboBoxMatchType.Size = new System.Drawing.Size(412, 21);
-            this.comboBoxMatchType.TabIndex = 6;
+            this.comboBoxMatchType.TabIndex = 7;
             this.comboBoxMatchType.Text = "Match Type";
             // 
             // buttonCreateTeamsAuto
@@ -210,7 +210,7 @@ namespace sc2_matchmaker
             this.buttonCreateTeamsAuto.Location = new System.Drawing.Point(368, 571);
             this.buttonCreateTeamsAuto.Name = "buttonCreateTeamsAuto";
             this.buttonCreateTeamsAuto.Size = new System.Drawing.Size(59, 23);
-            this.buttonCreateTeamsAuto.TabIndex = 3;
+            this.buttonCreateTeamsAuto.TabIndex = 13;
             this.buttonCreateTeamsAuto.Text = "Create";
             this.buttonCreateTeamsAuto.UseVisualStyleBackColor = true;
             this.buttonCreateTeamsAuto.Click += new System.EventHandler(this.buttonAuto_Click);
@@ -220,7 +220,7 @@ namespace sc2_matchmaker
             this.buttonValidate.Location = new System.Drawing.Point(368, 915);
             this.buttonValidate.Name = "buttonValidate";
             this.buttonValidate.Size = new System.Drawing.Size(59, 23);
-            this.buttonValidate.TabIndex = 3;
+            this.buttonValidate.TabIndex = 15;
             this.buttonValidate.Text = "Validate";
             this.buttonValidate.UseVisualStyleBackColor = true;
             this.buttonValidate.Click += new System.EventHandler(this.buttonValidate_Click);
@@ -231,7 +231,7 @@ namespace sc2_matchmaker
             this.comboBoxWinningTeam.Location = new System.Drawing.Point(15, 888);
             this.comboBoxWinningTeam.Name = "comboBoxWinningTeam";
             this.comboBoxWinningTeam.Size = new System.Drawing.Size(412, 21);
-            this.comboBoxWinningTeam.TabIndex = 6;
+            this.comboBoxWinningTeam.TabIndex = 14;
             this.comboBoxWinningTeam.Text = "Select the Winning Team";
             this.comboBoxWinningTeam.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -243,7 +243,7 @@ namespace sc2_matchmaker
             this.labelMatchmaking.Location = new System.Drawing.Point(12, 619);
             this.labelMatchmaking.Name = "labelMatchmaking";
             this.labelMatchmaking.Size = new System.Drawing.Size(59, 13);
-            this.labelMatchmaking.TabIndex = 7;
+            this.labelMatchmaking.TabIndex = 99;
             this.labelMatchmaking.Text = "4) Teams";
             // 
             // labelParameters
@@ -254,7 +254,7 @@ namespace sc2_matchmaker
             this.labelParameters.Location = new System.Drawing.Point(10, 366);
             this.labelParameters.Name = "labelParameters";
             this.labelParameters.Size = new System.Drawing.Size(124, 13);
-            this.labelParameters.TabIndex = 9;
+            this.labelParameters.TabIndex = 99;
             this.labelParameters.Text = "2) Match Parameters";
             this.labelParameters.Click += new System.EventHandler(this.label1_Click_1);
             // 
@@ -266,7 +266,7 @@ namespace sc2_matchmaker
             this.labelMarchResult.Location = new System.Drawing.Point(12, 860);
             this.labelMarchResult.Name = "labelMarchResult";
             this.labelMarchResult.Size = new System.Drawing.Size(97, 13);
-            this.labelMarchResult.TabIndex = 10;
+            this.labelMarchResult.TabIndex = 99;
             this.labelMarchResult.Text = "5) Match Result";
             // 
             // labelRandom
@@ -277,7 +277,7 @@ namespace sc2_matchmaker
             this.labelRandom.Location = new System.Drawing.Point(3, 162);
             this.labelRandom.Name = "labelRandom";
             this.labelRandom.Size = new System.Drawing.Size(50, 13);
-            this.labelRandom.TabIndex = 7;
+            this.labelRandom.TabIndex = 99;
             this.labelRandom.Text = "Random:";
             this.labelRandom.Click += new System.EventHandler(this.labelOverall_Click);
             // 
@@ -329,7 +329,7 @@ namespace sc2_matchmaker
             this.labelZerg.Location = new System.Drawing.Point(3, 108);
             this.labelZerg.Name = "labelZerg";
             this.labelZerg.Size = new System.Drawing.Size(32, 13);
-            this.labelZerg.TabIndex = 7;
+            this.labelZerg.TabIndex = 99;
             this.labelZerg.Text = "Zerg:";
             // 
             // labelProtoss
@@ -340,7 +340,7 @@ namespace sc2_matchmaker
             this.labelProtoss.Location = new System.Drawing.Point(3, 135);
             this.labelProtoss.Name = "labelProtoss";
             this.labelProtoss.Size = new System.Drawing.Size(45, 13);
-            this.labelProtoss.TabIndex = 7;
+            this.labelProtoss.TabIndex = 99;
             this.labelProtoss.Text = "Protoss:";
             // 
             // labelTerran
@@ -351,7 +351,7 @@ namespace sc2_matchmaker
             this.labelTerran.Location = new System.Drawing.Point(3, 81);
             this.labelTerran.Name = "labelTerran";
             this.labelTerran.Size = new System.Drawing.Size(41, 13);
-            this.labelTerran.TabIndex = 7;
+            this.labelTerran.TabIndex = 99;
             this.labelTerran.Text = "Terran:";
             // 
             // labelName
@@ -362,7 +362,7 @@ namespace sc2_matchmaker
             this.labelName.Location = new System.Drawing.Point(3, 27);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(38, 13);
-            this.labelName.TabIndex = 7;
+            this.labelName.TabIndex = 99;
             this.labelName.Text = "Name:";
             // 
             // labelDetails
@@ -373,7 +373,7 @@ namespace sc2_matchmaker
             this.labelDetails.Location = new System.Drawing.Point(3, 0);
             this.labelDetails.Name = "labelDetails";
             this.labelDetails.Size = new System.Drawing.Size(46, 13);
-            this.labelDetails.TabIndex = 7;
+            this.labelDetails.TabIndex = 99;
             this.labelDetails.Text = "Details";
             // 
             // tableLayoutPanel1
@@ -427,7 +427,7 @@ namespace sc2_matchmaker
             this.labelOverall.Location = new System.Drawing.Point(3, 189);
             this.labelOverall.Name = "labelOverall";
             this.labelOverall.Size = new System.Drawing.Size(43, 13);
-            this.labelOverall.TabIndex = 10;
+            this.labelOverall.TabIndex = 99;
             this.labelOverall.Text = "Overall:";
             // 
             // labelRanked
@@ -438,7 +438,7 @@ namespace sc2_matchmaker
             this.labelRanked.Location = new System.Drawing.Point(3, 54);
             this.labelRanked.Name = "labelRanked";
             this.labelRanked.Size = new System.Drawing.Size(36, 13);
-            this.labelRanked.TabIndex = 9;
+            this.labelRanked.TabIndex = 99;
             this.labelRanked.Text = "Rank:";
             // 
             // rankedContent
@@ -454,7 +454,7 @@ namespace sc2_matchmaker
             this.richTextBoxTeams.Location = new System.Drawing.Point(18, 645);
             this.richTextBoxTeams.Name = "richTextBoxTeams";
             this.richTextBoxTeams.Size = new System.Drawing.Size(407, 201);
-            this.richTextBoxTeams.TabIndex = 11;
+            this.richTextBoxTeams.TabIndex = 99;
             this.richTextBoxTeams.Text = "";
             // 
             // labelCreateTeams
@@ -465,7 +465,7 @@ namespace sc2_matchmaker
             this.labelCreateTeams.Location = new System.Drawing.Point(10, 438);
             this.labelCreateTeams.Name = "labelCreateTeams";
             this.labelCreateTeams.Size = new System.Drawing.Size(100, 13);
-            this.labelCreateTeams.TabIndex = 9;
+            this.labelCreateTeams.TabIndex = 99;
             this.labelCreateTeams.Text = "3) Create Teams";
             this.labelCreateTeams.Click += new System.EventHandler(this.label1_Click_1);
             // 
@@ -474,7 +474,7 @@ namespace sc2_matchmaker
             this.buttonCheckAll.Location = new System.Drawing.Point(24, 313);
             this.buttonCheckAll.Name = "buttonCheckAll";
             this.buttonCheckAll.Size = new System.Drawing.Size(69, 23);
-            this.buttonCheckAll.TabIndex = 14;
+            this.buttonCheckAll.TabIndex = 5;
             this.buttonCheckAll.Text = "Check All";
             this.buttonCheckAll.UseVisualStyleBackColor = true;
             this.buttonCheckAll.Click += new System.EventHandler(this.buttonCheckAll_Click);
@@ -484,7 +484,7 @@ namespace sc2_matchmaker
             this.buttonUncheckAll.Location = new System.Drawing.Point(99, 313);
             this.buttonUncheckAll.Name = "buttonUncheckAll";
             this.buttonUncheckAll.Size = new System.Drawing.Size(79, 23);
-            this.buttonUncheckAll.TabIndex = 15;
+            this.buttonUncheckAll.TabIndex = 6;
             this.buttonUncheckAll.Text = "Uncheck All";
             this.buttonUncheckAll.UseVisualStyleBackColor = true;
             this.buttonUncheckAll.Click += new System.EventHandler(this.buttonUncheckAll_Click);
@@ -495,7 +495,7 @@ namespace sc2_matchmaker
             this.radioButtonBalancedMax.Location = new System.Drawing.Point(12, 483);
             this.radioButtonBalancedMax.Name = "radioButtonBalancedMax";
             this.radioButtonBalancedMax.Size = new System.Drawing.Size(153, 17);
-            this.radioButtonBalancedMax.TabIndex = 17;
+            this.radioButtonBalancedMax.TabIndex = 9;
             this.radioButtonBalancedMax.TabStop = true;
             this.radioButtonBalancedMax.Text = "Balanced + Max Global Elo";
             this.radioButtonBalancedMax.UseVisualStyleBackColor = true;
@@ -507,7 +507,7 @@ namespace sc2_matchmaker
             this.radioButtonBalancedMin.Location = new System.Drawing.Point(12, 506);
             this.radioButtonBalancedMin.Name = "radioButtonBalancedMin";
             this.radioButtonBalancedMin.Size = new System.Drawing.Size(150, 17);
-            this.radioButtonBalancedMin.TabIndex = 17;
+            this.radioButtonBalancedMin.TabIndex = 10;
             this.radioButtonBalancedMin.TabStop = true;
             this.radioButtonBalancedMin.Text = "Balanced + Min Global Elo";
             this.radioButtonBalancedMin.UseVisualStyleBackColor = true;
@@ -519,7 +519,7 @@ namespace sc2_matchmaker
             this.radioButtonBalanced.Location = new System.Drawing.Point(12, 460);
             this.radioButtonBalanced.Name = "radioButtonBalanced";
             this.radioButtonBalanced.Size = new System.Drawing.Size(70, 17);
-            this.radioButtonBalanced.TabIndex = 17;
+            this.radioButtonBalanced.TabIndex = 8;
             this.radioButtonBalanced.TabStop = true;
             this.radioButtonBalanced.Text = "Balanced";
             this.radioButtonBalanced.UseVisualStyleBackColor = true;
@@ -531,7 +531,7 @@ namespace sc2_matchmaker
             this.radioButtonRandom.Location = new System.Drawing.Point(12, 529);
             this.radioButtonRandom.Name = "radioButtonRandom";
             this.radioButtonRandom.Size = new System.Drawing.Size(65, 17);
-            this.radioButtonRandom.TabIndex = 17;
+            this.radioButtonRandom.TabIndex = 11;
             this.radioButtonRandom.TabStop = true;
             this.radioButtonRandom.Text = "Random";
             this.radioButtonRandom.UseVisualStyleBackColor = true;
@@ -543,7 +543,7 @@ namespace sc2_matchmaker
             this.radioButtonManual.Location = new System.Drawing.Point(12, 552);
             this.radioButtonManual.Name = "radioButtonManual";
             this.radioButtonManual.Size = new System.Drawing.Size(60, 17);
-            this.radioButtonManual.TabIndex = 17;
+            this.radioButtonManual.TabIndex = 12;
             this.radioButtonManual.TabStop = true;
             this.radioButtonManual.Text = "Manual";
             this.radioButtonManual.UseVisualStyleBackColor = true;

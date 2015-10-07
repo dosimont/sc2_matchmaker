@@ -49,7 +49,7 @@
             this.textBoxName.Location = new System.Drawing.Point(53, 12);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(107, 20);
-            this.textBoxName.TabIndex = 0;
+            this.textBoxName.TabIndex = 1;
             // 
             // labelName
             // 
@@ -57,7 +57,7 @@
             this.labelName.Location = new System.Drawing.Point(12, 15);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(35, 13);
-            this.labelName.TabIndex = 1;
+            this.labelName.TabIndex = 99;
             this.labelName.Text = "Name";
             // 
             // checkBoxTerran
@@ -76,7 +76,7 @@
             this.checkBoxZerg.Location = new System.Drawing.Point(15, 103);
             this.checkBoxZerg.Name = "checkBoxZerg";
             this.checkBoxZerg.Size = new System.Drawing.Size(48, 17);
-            this.checkBoxZerg.TabIndex = 2;
+            this.checkBoxZerg.TabIndex = 4;
             this.checkBoxZerg.Text = "Zerg";
             this.checkBoxZerg.UseVisualStyleBackColor = true;
             // 
@@ -86,7 +86,7 @@
             this.checkBoxProtoss.Location = new System.Drawing.Point(15, 126);
             this.checkBoxProtoss.Name = "checkBoxProtoss";
             this.checkBoxProtoss.Size = new System.Drawing.Size(61, 17);
-            this.checkBoxProtoss.TabIndex = 2;
+            this.checkBoxProtoss.TabIndex = 6;
             this.checkBoxProtoss.Text = "Protoss";
             this.checkBoxProtoss.UseVisualStyleBackColor = true;
             // 
@@ -96,7 +96,7 @@
             this.checkBoxRandom.Location = new System.Drawing.Point(15, 149);
             this.checkBoxRandom.Name = "checkBoxRandom";
             this.checkBoxRandom.Size = new System.Drawing.Size(66, 17);
-            this.checkBoxRandom.TabIndex = 2;
+            this.checkBoxRandom.TabIndex = 8;
             this.checkBoxRandom.Text = "Random";
             this.checkBoxRandom.UseVisualStyleBackColor = true;
             // 
@@ -106,7 +106,7 @@
             this.labelSelectRaces.Location = new System.Drawing.Point(12, 54);
             this.labelSelectRaces.Name = "labelSelectRaces";
             this.labelSelectRaces.Size = new System.Drawing.Size(117, 13);
-            this.labelSelectRaces.TabIndex = 1;
+            this.labelSelectRaces.TabIndex = 99;
             this.labelSelectRaces.Text = "Select Playable Races:";
             this.labelSelectRaces.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -115,7 +115,7 @@
             this.buttonOK.Location = new System.Drawing.Point(230, 178);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
-            this.buttonOK.TabIndex = 3;
+            this.buttonOK.TabIndex = 11;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOk_Click);
@@ -125,7 +125,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(149, 178);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 3;
+            this.buttonCancel.TabIndex = 10;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
@@ -136,7 +136,7 @@
             this.comboBoxTerran.Location = new System.Drawing.Point(207, 76);
             this.comboBoxTerran.Name = "comboBoxTerran";
             this.comboBoxTerran.Size = new System.Drawing.Size(98, 21);
-            this.comboBoxTerran.TabIndex = 4;
+            this.comboBoxTerran.TabIndex = 3;
             // 
             // comboBoxZerg
             // 
@@ -152,7 +152,7 @@
             this.comboBoxProtoss.Location = new System.Drawing.Point(207, 122);
             this.comboBoxProtoss.Name = "comboBoxProtoss";
             this.comboBoxProtoss.Size = new System.Drawing.Size(98, 21);
-            this.comboBoxProtoss.TabIndex = 6;
+            this.comboBoxProtoss.TabIndex = 7;
             // 
             // comboBoxRandom
             // 
@@ -160,7 +160,7 @@
             this.comboBoxRandom.Location = new System.Drawing.Point(207, 145);
             this.comboBoxRandom.Name = "comboBoxRandom";
             this.comboBoxRandom.Size = new System.Drawing.Size(98, 21);
-            this.comboBoxRandom.TabIndex = 7;
+            this.comboBoxRandom.TabIndex = 9;
             // 
             // labelEstimatedLevel
             // 
@@ -168,7 +168,7 @@
             this.labelEstimatedLevel.Location = new System.Drawing.Point(204, 54);
             this.labelEstimatedLevel.Name = "labelEstimatedLevel";
             this.labelEstimatedLevel.Size = new System.Drawing.Size(85, 13);
-            this.labelEstimatedLevel.TabIndex = 8;
+            this.labelEstimatedLevel.TabIndex = 99;
             this.labelEstimatedLevel.Text = "Estimated Level:";
             // 
             // PlayerForm
