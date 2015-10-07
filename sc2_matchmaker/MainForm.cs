@@ -67,6 +67,7 @@ namespace sc2_matchmaker
             buttonValidate.Enabled = false;
             buttonCreateTeamsAuto.Enabled = true;
             radioButtonBalanced.Checked = true;
+            cancelLastValidationToolStripMenuItem.Enabled = false;
             unsaved();
 
         }
@@ -89,11 +90,14 @@ namespace sc2_matchmaker
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             buttonValidate.Enabled = true;
+            clearTeams();
+            printResult(comboBoxWinningTeam.SelectedIndex);
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Core = new Core();
+            cancelLastValidationToolStripMenuItem.Enabled = false;
             currentFile = null;
             checkedListBoxHumanPlayers.Items.Clear();
         }
@@ -105,6 +109,7 @@ namespace sc2_matchmaker
             openFileDialog1.Filter = "All files (*.*)|*.*|SC2 Matchmaker profile (*.sc2mp)|*.sc2mp";
             openFileDialog1.FilterIndex = 2;
             openFileDialog1.RestoreDirectory = true;
+            cancelLastValidationToolStripMenuItem.Enabled = false;
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -211,6 +216,30 @@ namespace sc2_matchmaker
             }
             saved();
         }
+
+        private void saveTemp()
+        {
+            if (currentFile != null)
+            {
+                core.CurrentFile = currentFile+".bak";
+                core.savePlayers();
+                cancelLastValidationToolStripMenuItem.Enabled = true;
+            }
+        }
+
+        private void openTemp()
+        {
+            if (currentFile != null)
+            {
+                Core = new Core(currentFile+".bak");
+                core.openPlayers();
+                actualizeCheckedListPlayer();
+                core.computeRanks();
+                saved();
+                cancelLastValidationToolStripMenuItem.Enabled = false;
+            }
+        }
+
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -349,6 +378,7 @@ namespace sc2_matchmaker
         {
             updateCheckedHumanPlayers();
             core.MatchType = comboBoxMatchType.Text;
+            buttonValidate.Enabled = false;
             if (policy == Constants.MatchPolicy.Manual)
             {
                 try
@@ -370,6 +400,7 @@ namespace sc2_matchmaker
                     core.computeMatchmaking(policy);
                     printTeams();
                     selectTeams();
+                    comboBoxWinningTeam.Text = "Select the Winning Team";
                     comboBoxWinningTeam.Enabled = true;
                 }
                 catch (Exception ex)
@@ -384,6 +415,7 @@ namespace sc2_matchmaker
         private void printTeams()
         {
             int i = 0;
+            richTextBoxTeams.SelectionFont = new Font(richTextBoxTeams.Font, FontStyle.Regular);
             string str="Matchmaking score (lower is better): "+(int)core.CurrentScore+ Environment.NewLine+Environment.NewLine;
             foreach(var team in core.CurrentTeams)
             {
@@ -392,6 +424,26 @@ namespace sc2_matchmaker
                 str += team + Environment.NewLine+Environment.NewLine;
             }
             richTextBoxTeams.Text = str;
+        }
+
+        private void printResult(int index)
+        {
+            int i = 1;
+            richTextBoxTeams.SelectionFont = new Font(richTextBoxTeams.Font, FontStyle.Regular);
+            richTextBoxTeams.AppendText("Matchmaking score (lower is better): " + (int)core.CurrentScore + Environment.NewLine + Environment.NewLine);
+            foreach (var team in core.CurrentTeams)
+            {
+                if ((index + 1) == i)
+                {
+                    richTextBoxTeams.SelectionFont = new Font(richTextBoxTeams.Font, FontStyle.Bold);
+                }
+                else
+                {
+                    richTextBoxTeams.SelectionFont = new Font(richTextBoxTeams.Font, FontStyle.Regular);
+                }
+                richTextBoxTeams.AppendText("Team " + i + ":" + Environment.NewLine + team.ToString() + Environment.NewLine + Environment.NewLine);
+                i++;
+            }
         }
 
         private void clearTeams()
@@ -412,8 +464,10 @@ namespace sc2_matchmaker
 
         private void validateTeam()
         {
+            saveTemp();
             core.winningTeam(comboBoxWinningTeam.SelectedIndex);
             unsaved();
+            
         }
 
         public void unsaved()
@@ -598,6 +652,11 @@ namespace sc2_matchmaker
                 radioButtonRandom.Checked = false;
                 policy = Constants.MatchPolicy.Manual;
             }
+        }
+
+        private void cancelLastValidationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openTemp();
         }
     }
 }

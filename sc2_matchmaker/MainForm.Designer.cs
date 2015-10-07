@@ -76,6 +76,8 @@ namespace sc2_matchmaker
             this.radioButtonBalanced = new System.Windows.Forms.RadioButton();
             this.radioButtonRandom = new System.Windows.Forms.RadioButton();
             this.radioButtonManual = new System.Windows.Forms.RadioButton();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cancelLastValidationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -83,7 +85,8 @@ namespace sc2_matchmaker
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.editToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(434, 24);
@@ -549,6 +552,21 @@ namespace sc2_matchmaker
             this.radioButtonManual.UseVisualStyleBackColor = true;
             this.radioButtonManual.CheckedChanged += new System.EventHandler(this.radioButtonManual_CheckedChanged);
             // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cancelLastValidationToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // cancelLastValidationToolStripMenuItem
+            // 
+            this.cancelLastValidationToolStripMenuItem.Name = "cancelLastValidationToolStripMenuItem";
+            this.cancelLastValidationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cancelLastValidationToolStripMenuItem.Text = "Undo";
+            this.cancelLastValidationToolStripMenuItem.Click += new System.EventHandler(this.cancelLastValidationToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -639,6 +657,8 @@ namespace sc2_matchmaker
         private System.Windows.Forms.RadioButton radioButtonBalanced;
         private System.Windows.Forms.RadioButton radioButtonRandom;
         private System.Windows.Forms.RadioButton radioButtonManual;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cancelLastValidationToolStripMenuItem;
     }
 }
 
