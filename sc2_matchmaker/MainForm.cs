@@ -34,6 +34,7 @@ namespace sc2_matchmaker
         const string title = "SC2 Matchmaker";
         const string ast = " *";
         bool modif = false;
+        Constants.MatchPolicy policy = Constants.MatchPolicy.Balanced;
 
         internal Core Core
         {
@@ -65,6 +66,7 @@ namespace sc2_matchmaker
             comboBoxWinningTeam.Enabled = false;
             buttonValidate.Enabled = false;
             buttonCreateTeamsAuto.Enabled = true;
+            radioButtonBalanced.Checked = true;
             unsaved();
 
         }
@@ -341,38 +343,42 @@ namespace sc2_matchmaker
 
         private void buttonManual_Click(object sender, EventArgs e)
         {
-            updateCheckedHumanPlayers();
-
-            core.MatchType = comboBoxMatchType.Text;
-            try
-            {
-                core.computeMatchmaking();
-                printTeams();
-                selectTeams();
-                comboBoxWinningTeam.Enabled = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-                return;
-            }
         }
 
         private void buttonAuto_Click(object sender, EventArgs e)
         {
             updateCheckedHumanPlayers();
-
             core.MatchType = comboBoxMatchType.Text;
-            try {
-                core.computeMatchmaking();
-                printTeams();
-                selectTeams();
-                comboBoxWinningTeam.Enabled = true;
-            }catch(Exception ex)
+            if (policy == Constants.MatchPolicy.Manual)
             {
-            MessageBox.Show("Error: "+ex.Message);
-            return;
+                try
+                {
+                    core.checkMatch();
+                    TeamForm teamForm = new TeamForm(this);
+                    teamForm.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                    return;
+                }
             }
+            else
+            {
+                try
+                {
+                    core.computeMatchmaking(policy);
+                    printTeams();
+                    selectTeams();
+                    comboBoxWinningTeam.Enabled = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                    return;
+                }
+            }
+
         }
 
         private void printTeams()
@@ -531,6 +537,66 @@ namespace sc2_matchmaker
                {
                     MessageBox.Show("Error: Could not export file. Original error: " + ex.Message);
                }
+            }
+        }
+
+        private void radioButtonBalanced_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonBalanced.Checked)
+            {
+                radioButtonBalancedMin.Checked = false;
+                radioButtonBalancedMax.Checked = false;
+                radioButtonRandom.Checked = false;
+                radioButtonManual.Checked = false;
+                policy = Constants.MatchPolicy.Balanced;
+            }
+        }
+
+        private void radioButtonBalancedMin_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonBalancedMin.Checked)
+            { 
+                radioButtonBalanced.Checked = false;
+                radioButtonBalancedMax.Checked = false;
+                radioButtonRandom.Checked = false;
+                radioButtonManual.Checked = false;
+                policy = Constants.MatchPolicy.Min;
+            }
+        }
+
+        private void radioButtonBalancedMax_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonBalancedMax.Checked)
+            {
+                radioButtonBalanced.Checked = false;
+                radioButtonBalancedMin.Checked = false;
+                radioButtonRandom.Checked = false;
+                radioButtonManual.Checked = false;
+                policy = Constants.MatchPolicy.Max;
+            }
+        }
+
+        private void radioButtonRandom_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonRandom.Checked)
+            {
+                radioButtonBalanced.Checked = false;
+                radioButtonBalancedMin.Checked = false;
+                radioButtonBalancedMax.Checked = false;
+                radioButtonManual.Checked = false;
+                policy = Constants.MatchPolicy.Random;
+            }
+        }
+
+        private void radioButtonManual_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonManual.Checked)
+            {
+                radioButtonBalanced.Checked = false;
+                radioButtonBalancedMin.Checked = false;
+                radioButtonBalancedMax.Checked = false;
+                radioButtonRandom.Checked = false;
+                policy = Constants.MatchPolicy.Manual;
             }
         }
     }

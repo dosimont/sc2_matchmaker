@@ -68,10 +68,14 @@ namespace sc2_matchmaker
             this.labelRanked = new System.Windows.Forms.Label();
             this.rankedContent = new System.Windows.Forms.Label();
             this.richTextBoxTeams = new System.Windows.Forms.RichTextBox();
-            this.buttonCreateTeamsManual = new System.Windows.Forms.Button();
             this.labelCreateTeams = new System.Windows.Forms.Label();
             this.buttonCheckAll = new System.Windows.Forms.Button();
             this.buttonUncheckAll = new System.Windows.Forms.Button();
+            this.radioButtonBalancedMax = new System.Windows.Forms.RadioButton();
+            this.radioButtonBalancedMin = new System.Windows.Forms.RadioButton();
+            this.radioButtonBalanced = new System.Windows.Forms.RadioButton();
+            this.radioButtonRandom = new System.Windows.Forms.RadioButton();
+            this.radioButtonManual = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -203,17 +207,17 @@ namespace sc2_matchmaker
             // 
             // buttonCreateTeamsAuto
             // 
-            this.buttonCreateTeamsAuto.Location = new System.Drawing.Point(301, 469);
+            this.buttonCreateTeamsAuto.Location = new System.Drawing.Point(368, 571);
             this.buttonCreateTeamsAuto.Name = "buttonCreateTeamsAuto";
             this.buttonCreateTeamsAuto.Size = new System.Drawing.Size(59, 23);
             this.buttonCreateTeamsAuto.TabIndex = 3;
-            this.buttonCreateTeamsAuto.Text = "Auto";
+            this.buttonCreateTeamsAuto.Text = "Create";
             this.buttonCreateTeamsAuto.UseVisualStyleBackColor = true;
             this.buttonCreateTeamsAuto.Click += new System.EventHandler(this.buttonAuto_Click);
             // 
             // buttonValidate
             // 
-            this.buttonValidate.Location = new System.Drawing.Point(366, 803);
+            this.buttonValidate.Location = new System.Drawing.Point(368, 915);
             this.buttonValidate.Name = "buttonValidate";
             this.buttonValidate.Size = new System.Drawing.Size(59, 23);
             this.buttonValidate.TabIndex = 3;
@@ -224,7 +228,7 @@ namespace sc2_matchmaker
             // comboBoxWinningTeam
             // 
             this.comboBoxWinningTeam.FormattingEnabled = true;
-            this.comboBoxWinningTeam.Location = new System.Drawing.Point(13, 776);
+            this.comboBoxWinningTeam.Location = new System.Drawing.Point(15, 888);
             this.comboBoxWinningTeam.Name = "comboBoxWinningTeam";
             this.comboBoxWinningTeam.Size = new System.Drawing.Size(412, 21);
             this.comboBoxWinningTeam.TabIndex = 6;
@@ -236,7 +240,7 @@ namespace sc2_matchmaker
             this.labelMatchmaking.AutoSize = true;
             this.labelMatchmaking.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMatchmaking.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.labelMatchmaking.Location = new System.Drawing.Point(10, 507);
+            this.labelMatchmaking.Location = new System.Drawing.Point(12, 619);
             this.labelMatchmaking.Name = "labelMatchmaking";
             this.labelMatchmaking.Size = new System.Drawing.Size(59, 13);
             this.labelMatchmaking.TabIndex = 7;
@@ -259,7 +263,7 @@ namespace sc2_matchmaker
             this.labelMarchResult.AutoSize = true;
             this.labelMarchResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMarchResult.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.labelMarchResult.Location = new System.Drawing.Point(10, 748);
+            this.labelMarchResult.Location = new System.Drawing.Point(12, 860);
             this.labelMarchResult.Name = "labelMarchResult";
             this.labelMarchResult.Size = new System.Drawing.Size(97, 13);
             this.labelMarchResult.TabIndex = 10;
@@ -447,21 +451,11 @@ namespace sc2_matchmaker
             // 
             // richTextBoxTeams
             // 
-            this.richTextBoxTeams.Location = new System.Drawing.Point(16, 533);
+            this.richTextBoxTeams.Location = new System.Drawing.Point(18, 645);
             this.richTextBoxTeams.Name = "richTextBoxTeams";
             this.richTextBoxTeams.Size = new System.Drawing.Size(407, 201);
             this.richTextBoxTeams.TabIndex = 11;
             this.richTextBoxTeams.Text = "";
-            // 
-            // buttonCreateTeamsManual
-            // 
-            this.buttonCreateTeamsManual.Location = new System.Drawing.Point(366, 469);
-            this.buttonCreateTeamsManual.Name = "buttonCreateTeamsManual";
-            this.buttonCreateTeamsManual.Size = new System.Drawing.Size(59, 23);
-            this.buttonCreateTeamsManual.TabIndex = 13;
-            this.buttonCreateTeamsManual.Text = "Manual";
-            this.buttonCreateTeamsManual.UseVisualStyleBackColor = true;
-            this.buttonCreateTeamsManual.Click += new System.EventHandler(this.buttonCreateTeamsManual_Click);
             // 
             // labelCreateTeams
             // 
@@ -495,15 +489,79 @@ namespace sc2_matchmaker
             this.buttonUncheckAll.UseVisualStyleBackColor = true;
             this.buttonUncheckAll.Click += new System.EventHandler(this.buttonUncheckAll_Click);
             // 
+            // radioButtonBalancedMax
+            // 
+            this.radioButtonBalancedMax.AutoSize = true;
+            this.radioButtonBalancedMax.Location = new System.Drawing.Point(12, 483);
+            this.radioButtonBalancedMax.Name = "radioButtonBalancedMax";
+            this.radioButtonBalancedMax.Size = new System.Drawing.Size(153, 17);
+            this.radioButtonBalancedMax.TabIndex = 17;
+            this.radioButtonBalancedMax.TabStop = true;
+            this.radioButtonBalancedMax.Text = "Balanced + Max Global Elo";
+            this.radioButtonBalancedMax.UseVisualStyleBackColor = true;
+            this.radioButtonBalancedMax.CheckedChanged += new System.EventHandler(this.radioButtonBalancedMax_CheckedChanged);
+            // 
+            // radioButtonBalancedMin
+            // 
+            this.radioButtonBalancedMin.AutoSize = true;
+            this.radioButtonBalancedMin.Location = new System.Drawing.Point(12, 506);
+            this.radioButtonBalancedMin.Name = "radioButtonBalancedMin";
+            this.radioButtonBalancedMin.Size = new System.Drawing.Size(150, 17);
+            this.radioButtonBalancedMin.TabIndex = 17;
+            this.radioButtonBalancedMin.TabStop = true;
+            this.radioButtonBalancedMin.Text = "Balanced + Min Global Elo";
+            this.radioButtonBalancedMin.UseVisualStyleBackColor = true;
+            this.radioButtonBalancedMin.CheckedChanged += new System.EventHandler(this.radioButtonBalancedMin_CheckedChanged);
+            // 
+            // radioButtonBalanced
+            // 
+            this.radioButtonBalanced.AutoSize = true;
+            this.radioButtonBalanced.Location = new System.Drawing.Point(12, 460);
+            this.radioButtonBalanced.Name = "radioButtonBalanced";
+            this.radioButtonBalanced.Size = new System.Drawing.Size(70, 17);
+            this.radioButtonBalanced.TabIndex = 17;
+            this.radioButtonBalanced.TabStop = true;
+            this.radioButtonBalanced.Text = "Balanced";
+            this.radioButtonBalanced.UseVisualStyleBackColor = true;
+            this.radioButtonBalanced.CheckedChanged += new System.EventHandler(this.radioButtonBalanced_CheckedChanged);
+            // 
+            // radioButtonRandom
+            // 
+            this.radioButtonRandom.AutoSize = true;
+            this.radioButtonRandom.Location = new System.Drawing.Point(12, 529);
+            this.radioButtonRandom.Name = "radioButtonRandom";
+            this.radioButtonRandom.Size = new System.Drawing.Size(65, 17);
+            this.radioButtonRandom.TabIndex = 17;
+            this.radioButtonRandom.TabStop = true;
+            this.radioButtonRandom.Text = "Random";
+            this.radioButtonRandom.UseVisualStyleBackColor = true;
+            this.radioButtonRandom.CheckedChanged += new System.EventHandler(this.radioButtonRandom_CheckedChanged);
+            // 
+            // radioButtonManual
+            // 
+            this.radioButtonManual.AutoSize = true;
+            this.radioButtonManual.Location = new System.Drawing.Point(12, 552);
+            this.radioButtonManual.Name = "radioButtonManual";
+            this.radioButtonManual.Size = new System.Drawing.Size(60, 17);
+            this.radioButtonManual.TabIndex = 17;
+            this.radioButtonManual.TabStop = true;
+            this.radioButtonManual.Text = "Manual";
+            this.radioButtonManual.UseVisualStyleBackColor = true;
+            this.radioButtonManual.CheckedChanged += new System.EventHandler(this.radioButtonManual_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(434, 834);
+            this.ClientSize = new System.Drawing.Size(434, 947);
+            this.Controls.Add(this.radioButtonManual);
+            this.Controls.Add(this.radioButtonRandom);
+            this.Controls.Add(this.radioButtonBalancedMin);
+            this.Controls.Add(this.radioButtonBalanced);
+            this.Controls.Add(this.radioButtonBalancedMax);
             this.Controls.Add(this.buttonUncheckAll);
             this.Controls.Add(this.buttonCheckAll);
-            this.Controls.Add(this.buttonCreateTeamsManual);
             this.Controls.Add(this.richTextBoxTeams);
             this.Controls.Add(this.labelMarchResult);
             this.Controls.Add(this.labelCreateTeams);
@@ -567,7 +625,6 @@ namespace sc2_matchmaker
         private System.Windows.Forms.Label labelDetails;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.RichTextBox richTextBoxTeams;
-        private System.Windows.Forms.Button buttonCreateTeamsManual;
         private System.Windows.Forms.Label labelCreateTeams;
         private System.Windows.Forms.Button buttonCheckAll;
         private System.Windows.Forms.Button buttonUncheckAll;
@@ -577,6 +634,11 @@ namespace sc2_matchmaker
         private System.Windows.Forms.Label rankedContent;
         private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem markdownToolStripMenuItem;
+        private System.Windows.Forms.RadioButton radioButtonBalancedMax;
+        private System.Windows.Forms.RadioButton radioButtonBalancedMin;
+        private System.Windows.Forms.RadioButton radioButtonBalanced;
+        private System.Windows.Forms.RadioButton radioButtonRandom;
+        private System.Windows.Forms.RadioButton radioButtonManual;
     }
 }
 

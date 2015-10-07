@@ -45,10 +45,10 @@ namespace sc2_matchmaker
             }
         }
 
-        public List<Team> computeMatch()
+        public List<Team> computeMatch(Constants.MatchPolicy policy)
         {
             List<Team> teams = new List<Team>();
-            teams = computeTeams(core.getExpectedTeamPlayerNumber(), core.getExpectedTeamNumber());
+            teams = computeTeams(core.getExpectedTeamPlayerNumber(), core.getExpectedTeamNumber(), policy);
             return teams;
         }
 
@@ -67,14 +67,14 @@ namespace sc2_matchmaker
             }
         }
 
-
-        private List<Team> computeTeams(int teamMemberNumber, int teamNumber)
+        private List<Team> computeTeams(int teamMemberNumber, int teamNumber, Constants.MatchPolicy policy)
         {
             Random rnd = new Random();
             List<Team> teams = new List<Team>();
             List<Team> tempTeams = new List<Team>();
             PlayerSelecter playerSelecter = new PlayerSelecter(core.CheckedHumanPlayers.Values.ToList());
             score = 0;
+            double avgElo = 0;
             int[] scores = new int[teamNumber];
             for (int i = 0; i < Constants.Iterations; i++)
             {
@@ -106,9 +106,11 @@ namespace sc2_matchmaker
                     scores[j] = tempTeams[j].computeEloTeam();
                 }
                 double tempScore = Statistics.StdDev(scores);
-                if (tempScore < score||(i==0))
+                double tempAvgElo = Statistics.Mean(scores);
+                if (policyScore(policy, tempScore, score, tempAvgElo, avgElo) || (i==0))//TODO
                 {
                     score = tempScore;
+                    avgElo = tempAvgElo;
                     teams.Clear();
                     for (int j = 0; j < teamNumber; j++)
                     {
@@ -119,5 +121,22 @@ namespace sc2_matchmaker
             }
             return teams;
         }
+
+        public bool policyScore(Constants.MatchPolicy policy, double newScore, double oldScore, double newEloGlobal, double oldEloGlobal)
+        {
+            switch (policy)
+            {
+                case Constants.MatchPolicy.Balanced:
+                    return newScore < oldScore;
+                case Constants.MatchPolicy.Min:
+                    return ((newScore < oldScore) || ((newScore == oldScore) && (newEloGlobal < oldEloGlobal)));
+                case Constants.MatchPolicy.Max:
+                    return ((newScore < oldScore) || ((newScore == oldScore) && (newEloGlobal > oldEloGlobal)));
+                case Constants.MatchPolicy.Random:
+                    return true;
+            }
+            return false;
+        }
+
     }
 }

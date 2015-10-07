@@ -168,11 +168,11 @@ namespace sc2_matchmaker
             PlayerReader playerReader = new PlayerReader(currentFile);
             HumanPlayers = playerReader.readPlayers();
         }
-        public void computeMatchmaking()
+        public void computeMatchmaking(Constants.MatchPolicy policy)
         {
             Matchmaker matchMaker = new Matchmaker(this);
             checkMatch();
-            CurrentTeams = matchMaker.computeMatch();
+            CurrentTeams = matchMaker.computeMatch(policy);
             CurrentScore = matchMaker.Score;
         }
 

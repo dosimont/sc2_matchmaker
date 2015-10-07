@@ -142,5 +142,9 @@ namespace sc2_matchmaker
             }
             return raceStr;
         }
+
+        public enum MatchPolicy {
+            Min, Max, Balanced, Random, Manual
+        };
     }
 }
